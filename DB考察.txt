@@ -1,0 +1,46 @@
+Root
+> users
+	> xxxxxxxx
+		> gplusName: String
+		> gplusPhoto: URLString
+		> detail: String
+		> links: Array<Object>
+			> [0]
+				> name: String
+				> url: URLString
+
+			> ...
+			
+	> xxxxxxxx
+		> ...
+		
+> threads
+	> 0: "System"
+
+	> 1
+		> title: String
+		> overview: String
+		> detail: String
+		> jobs
+			> Owner: Array<UID>
+				> xxxxxxxx
+				> ...
+
+			> Admin: Array<UID>
+				> ...
+
+			> ...
+			
+		> createdAt: DateString
+
+		> data
+			> 0
+				> uid: UID
+				> content: String
+				> createdAt: DateString
+
+			> 1
+				> ...
+			
+	> 2
+		> ...

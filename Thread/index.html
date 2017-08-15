@@ -1,0 +1,71 @@
+<!DocType HTML>
+
+<HTML>
+	<Head>
+		<Meta Charset = "UTF-8" />
+		<Title>Simple Thread == スレッド一覧</Title>
+
+		<Link Rel = "StyleSheet" Href = "https://fonts.googleapis.com/icon?family=Material+Icons" />
+		<Link Rel = "StyleSheet" Href = "https://code.getmdl.io/1.3.0/material.teal-red.min.css" />
+		<Script Src = "https://code.getmdl.io/1.3.0/material.min.js" Defer = "Defer"></Script>
+		<Script Src = "http://localhost:8000/Programs/MDL Extender/MDL Extender.js"></Script>
+		<Link Rel = "StyleSheet" Href = "http://localhost:8000/Programs/MDL Extender/MDL Extender.css" />
+
+		<Script Src = "http://localhost:8000/Programs/DOM Extender/DOM Extender v3.0.js"></Script>
+		<Script Src = "https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></Script>
+		<Script Src = "http://localhost:8000/Programs/FirebasePlus.js"></Script>
+
+		<Script Src = "http://localhost:8001/v2/Core.js"></Script>
+		<Link Rel = "StyleSheet" Href = "http://localhost:8001/v2/Core.css" />
+
+		<Script Src = "Thread.js"></Script>
+		<Link Rel = "StyleSheet" Href = "Thread.css" />
+
+		<Script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			
+			ga('create', 'UA-88656260-1', 'auto');
+			ga('require', 'linkid', 'linkid.js');
+			ga('send', 'pageview');
+		</Script>
+	</Head>
+	
+	<Body>
+		<Div Class = "mdl-grid">
+			<Div ID = "Thread" Class = "mdl-cell mdl-cell--2-offset mdl-cell--8-col mdl-shadow--4dp mdl-color--white mdl-color-text--grey-800 mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+				<Div ID = "Thread_Tab" Class = "mdl-tabs__tab-bar">
+					<A ID = "Thread_Tab_Search" Class = "mdl-tabs__tab is-active" Href = "#Thread_Search">スレッド検索</A>
+					<A ID = "Thread_Tab_Admin" Class = "mdl-tabs__tab" Href = "#Thread_Admin">管理中のスレッド</A>
+					<A Class = "mdl-tabs__tab" Href = "Viewer/">スレッド(Debug)</A>
+				</Div>
+
+
+
+				<Div ID = "Thread_Search" Class = "mdl-list mdl-tabs__panel is-active">
+					<Div ID = "Thread_Search_Searcher" Class = "mdl-list__item">
+						<Label ID = "Thread_Search_Searcher" Class = "Thread_Searcher_Label mdl-button mdl-js-button mdl-button--icon" For = "Thread_Search_Searcher_Container_Input">
+							<I Class = "material-icons">search</I>
+						</Label>
+
+						<Div ID = "Thread_Search_Searcher_Container" Class = "mdl-textfield mdl-js-textfield">
+							<Input ID = "Thread_Search_Searcher_Container_Input" Class = "mdl-textfield__input" Type = "Search" />
+							<Label ID = "Thread_Search_Searcher_Container_Label" Class = "mdl-textfield__label" For = "Thread_Search_Searcher_Container_Input">Search...</Label>
+						</Div>
+					</Div>
+				</Div>
+
+				<Div ID = "Thread_Admin" Class = "mdl-list mdl-tabs__panel">
+					<A ID = "Thread_Admin_Create" Class = "mdl-list__item">
+						<Span Class = "mdl-list__item-primary-content">
+							<I Class = "mdl-list__item-avatar material-icons">add</I>
+							<Span>スレッドを作成</Span>
+						</Span>
+					</A>
+				</Div>
+			</Div>
+		</Div>
+	</Body>
+</HTML>

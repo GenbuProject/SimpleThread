@@ -1,0 +1,7 @@
+#Thread_Search_Searcher_Container {
+	Width: 100%;
+}
+
+#Thread_Search > A[Disabled] {
+	Display: None;
+}

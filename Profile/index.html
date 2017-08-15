@@ -1,0 +1,64 @@
+<!DocType HTML>
+
+<HTML>
+	<Head>
+		<Meta Charset = "UTF-8" />
+		<Title>Simple Thread == プロフィール</Title>
+
+		<Link Rel = "StyleSheet" Href = "https://fonts.googleapis.com/icon?family=Material+Icons" />
+		<Link Rel = "StyleSheet" Href = "https://code.getmdl.io/1.3.0/material.teal-red.min.css" />
+		<Script Src = "https://code.getmdl.io/1.3.0/material.min.js" Defer = "Defer"></Script>
+		<Script Src = "http://localhost:8000/Programs/MDL Extender/MDL Extender.js"></Script>
+		<Link Rel = "StyleSheet" Href = "http://localhost:8000/Programs/MDL Extender/MDL Extender.css" />
+
+		<Script Src = "http://localhost:8000/Programs/DOM Extender/DOM Extender v3.0.js"></Script>
+		<Script Src = "https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></Script>
+		<Script Src = "http://localhost:8000/Programs/FirebasePlus.js"></Script>
+		
+		<Script Src = "http://localhost:8001/v2/Core.js"></Script>
+		<Link Rel = "StyleSheet" Href = "http://localhost:8001/v2/Core.css" />
+
+		<Script Src = "Profile.js"></Script>
+		<Link Rel = "StyleSheet" Href = "Profile.css" />
+
+		<Script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			
+			ga('create', 'UA-88656260-1', 'auto');
+			ga('require', 'linkid', 'linkid.js');
+			ga('send', 'pageview');
+		</Script>
+	</Head>
+	
+	<Body>
+		<Div Class = "mdl-grid">
+			<Div ID = "Profile" Class = "mdl-cell mdl-cell--2-offset mdl-cell--8-col mdl-shadow--4dp mdl-color--white mdl-color-text--grey-800">
+				<Style ID = "Profile_Manager"></Style>
+				
+				<Div ID = "Profile_Photo" Data-TagID = "ProfilePhoto"></Div>
+
+				<Div ID = "Profile_Info">
+					<Div ID = "Profile_Info_Name" Class = "mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<Input ID = "Profile_Info_Name_Input" Class = "mdl-textfield__input" Type = "Text" Value = "" />
+						<Label Class = "mdl-textfield__label" For = "Profile_Info_Name_Input">ユーザー名...</Label>
+					</Div>
+
+					<Div ID = "Profile_Info_Detail" Class = "mdl-textfield mdl-js-textfield">
+						<Textarea ID = "Profile_Info_Detail_Input" Class = "mdl-textfield__input" Rows = "10" MaxLength = "500"></Textarea>
+						<Label Class = "mdl-textfield__label" For = "Profile_Info_Detail_Input">自己紹介...</Label>
+					</Div>
+
+					<UL ID = "Profile_Info_URL" Class = "mdl-list mdl-extender__mdl-list--editable mdl-extender__mdl-list--2-field" Data-Label = "リンク" Data-Field0 = "表示名" Data-Field1 = "URL"></UL>
+
+					<Div ID = "Profile_Info_Btns">
+						<Button ID = "Profile_Info_Btns_Apply" Class = "mdl-button mdl-js-button mdl-button--raised">保存</Button>
+						<Button ID = "Profile_Info_Btns_Delete" Class = "mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect">アカウントを削除</Button>
+					</Div>
+				</Div>
+			</Div>
+		</Div>
+	</Body>
+</HTML>
