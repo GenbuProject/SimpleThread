@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
 	if (!base.user) {
-		location.href = "https://genbuproject.github.io/SimpleThread/Error/403/";
+		location.href = "/Error/401/";
 	} else {
 		DOM("#Profile_Info_Name").classList.add("is-dirty"),
 		DOM("#Profile_Info_Name_Input").value = base.user.displayName;

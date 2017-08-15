@@ -1,4 +1,4 @@
-window.base = parent.base || null;
+window.base = parent.base || {};
 
 window.addEventListener("DOMContentLoaded", () => {
 	DOM('@A[Href]:Not([Target]):Not([Href^="javascript:"])').forEach((elem) => {
