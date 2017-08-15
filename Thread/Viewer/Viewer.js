@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
 	if (!base) {
-		location.href = "http://localhost:8001/v2/Error/403/";
+		location.href = "https://genbuproject.github.io/SimpleThread/v2/Error/403/";
 	} else {
 		let querys = location.querySort();
 
