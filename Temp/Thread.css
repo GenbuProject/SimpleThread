@@ -1,0 +1,103 @@
+* {
+	Font: 14px / 2 "メイリオ", Meiryo, Osaka;
+}
+
+Body {
+	Color: #EEE;
+	BackGround: URL("https://genbuproject.github.io/Image/Back.jpg");
+}
+
+
+
+#Comments {
+	Display: Flex;
+	Flex-Direction: Column;
+	
+	Padding: 1em;
+	Margin: 8px 10em 8px 10em;
+	
+	Color: #111111;
+	
+	BackGround: White;
+	Border: Thin Solid Orange;
+	
+	List-Style: None;
+}
+
+#Comments:Before {
+	Content: "コメント";
+	
+	Font-Weight: Bold;
+}
+
+#Comments > Li {
+	Margin: 1em 0 0 0;
+	Padding: 0.5em;
+	
+	Border: Thin Solid Gray;
+	Border-Radius: 5px;
+}
+
+CTitle {
+	Display: Block;
+	Border-Bottom: Thin Solid Gray;
+}
+
+CContent {
+	Display: Block;
+}
+
+CCommentator, CDate {
+	Font-Size: 12px;
+}
+
+CCommentator {
+	Margin-Right: 1em;
+}
+
+CDate {
+	Color: Gray;
+}
+
+#Form {
+	Position: Fixed;
+	Top: 0;
+	Right: 0;
+	
+	Width: 90%;
+	
+	Display: Flex;
+	Flex-Direction: Row-Reverse;
+	
+	Z-Index: 1;
+}
+
+#Form > #FormBtn {
+	Height: 2em;
+	
+	BackGround: Crimson;
+	Border: Medium Groove Crimson;
+}
+
+#Form > #FormBtn + Div {
+	Display: Inline-Flex;
+	Flex-Direction: Column;
+	Flex: 1;
+	
+	Padding: 1em;
+	
+	BackGround: White;
+}
+
+.BackFog {
+	Position: Fixed;
+	Top: 0;
+	Left: 0;
+	
+	Width: 100%;
+	Height: 100%;
+	Z-Index: 0;
+	
+	BackGround: Black;
+	Opacity: 0.5;
+}
