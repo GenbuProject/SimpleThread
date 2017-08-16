@@ -14,6 +14,9 @@
 		<Script Src = "https://genbuproject.github.io/Programs/DOM Extender/DOM Extender v3.0.js"></Script>
 		<Script Src = "https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></Script>
 		<Script Src = "https://genbuproject.github.io/Programs/FirebasePlus.js"></Script>
+
+		<Script Src = "Main.js"></Script>
+		<Link Rel = "StyleSheet" Href = "Main.css" />
 		
 		<Script Src = "/Core.js"></Script>
 		<Link Rel = "StyleSheet" Href = "/Core.css" />
@@ -22,9 +25,6 @@
 		<Link Rel = "StyleSheet" Href = "includes/dialog-polyfill.css" />
 		<Script Src = "Dialog.js"></Script>
 		<Link Rel = "StyleSheet" Href = "Dialog.css" />
-		
-		<Script Src = "Main.js"></Script>
-		<Link Rel = "StyleSheet" Href = "Main.css" />
 
 		<Script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -48,7 +48,7 @@
 					<Nav Class = "mdl-navigation">
 						<A Class = "mdl-navigation__link" Href = "Top/">Top</A>
 						<A ID = "Header_SignInOut" Class = "mdl-navigation__link">Sign In</A>
-						<A Data-TagID = "ProfilePhoto--Btn" Class = "mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" Href = "Profile/"></A>
+						<A ID = "Header_AccountPane-Btn" Data-TagID = "ProfilePhoto--Btn" Class = "mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" Href = "Profile/"></A>
 
 						<Div Class = "mdl-tooltip" For = "Header_AccountPane-Btn">See your profile</Div>
 					</Nav>

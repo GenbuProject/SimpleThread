@@ -1,39 +1,39 @@
 window.addEventListener("DOMContentLoaded", () => {
 	if (!base.user) {
 		location.href = "/Error/401/";
-	} else {
-		DOM("#Profile_Info_Name").classList.add("is-dirty"),
-		DOM("#Profile_Info_Name_Input").value = base.user.displayName;
-
-		base.Database.get(base.Database.INTERVAL, "users/" + base.user.uid, (res) => {
-			res.links = res.links || [];
-
-			DOM("#Profile_Info_Detail").classList.add("is-dirty"),
-			DOM("#Profile_Info_Detail_Input").value = res.detail;
-
-			(() => {
-				if (res.links.length - DOM("#Profile_Info_URL").dataset.listlength > 0) {
-					for (let i = 0; i <= res.links.length - parseInt(DOM("#Profile_Info_URL").dataset.listlength); i++) {
-						DOM("#Profile_Info_URL_Add").click();
-					}
-				} else {
-					for (let i = 0; i < parseInt(DOM("#Profile_Info_URL").dataset.listlength) - res.links.length; i++) {
-						DOM("#Profile_Info_URL").children[0].querySelector('Button[ID*="Remove"]').click();
-					}
-				}
-
-				for (let i = 0; i < res.links.length; i++) {
-					let currentList = DOM("#Profile_Info_URL").querySelector('Li[Data-ItemID="' + i + '"]');
-						currentList.querySelectorAll("Div").forEach((container) => {
-							container.classList.add("is-dirty");
-						});
-						
-						currentList.querySelector('Input[Data-FieldID="0"]').value = res.links[i].name,
-						currentList.querySelector('Input[Data-FieldID="1"]').value = res.links[i].url;
-				}
-			})();
-		});
 	}
+	
+	DOM("#Profile_Info_Name").classList.add("is-dirty"),
+	DOM("#Profile_Info_Name_Input").value = base.user.displayName;
+
+	base.Database.get(base.Database.INTERVAL, "users/" + base.user.uid, (res) => {
+		res.links = res.links || [];
+
+		DOM("#Profile_Info_Detail").classList.add("is-dirty"),
+		DOM("#Profile_Info_Detail_Input").value = res.detail;
+
+		(() => {
+			if (res.links.length - DOM("#Profile_Info_URL").dataset.listlength > 0) {
+				for (let i = 0; i <= res.links.length - parseInt(DOM("#Profile_Info_URL").dataset.listlength); i++) {
+					DOM("#Profile_Info_URL_Add").click();
+				}
+			} else {
+				for (let i = 0; i < parseInt(DOM("#Profile_Info_URL").dataset.listlength) - res.links.length; i++) {
+					DOM("#Profile_Info_URL").children[0].querySelector('Button[ID*="Remove"]').click();
+				}
+			}
+
+			for (let i = 0; i < res.links.length; i++) {
+				let currentList = DOM("#Profile_Info_URL").querySelector('Li[Data-ItemID="' + i + '"]');
+					currentList.querySelectorAll("Div").forEach((container) => {
+						container.classList.add("is-dirty");
+					});
+					
+					currentList.querySelector('Input[Data-FieldID="0"]').value = res.links[i].name,
+					currentList.querySelector('Input[Data-FieldID="1"]').value = res.links[i].url;
+			}
+		})();
+	});
 
 
 
