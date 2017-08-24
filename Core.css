@@ -1,9 +1,13 @@
-A:Not([Href]) {
-	Cursor: Pointer;
+Body {
+	Background: URL("Assets/Images/Back.jpg");
 }
 
 *.mdl-grid > *.mdl-cell {
 	Padding: 4vmin;
+}
+
+A:Not([Href]) {
+	Cursor: Pointer;
 }
 
 

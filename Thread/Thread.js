@@ -1,12 +1,24 @@
 window.addEventListener("DOMContentLoaded", () => {
+	if (!base.user) {
+		DOM("$#Thread_Tab_Admin").setAttribute("Disabled", ""),
+		DOM("$#Thread_Admin").setAttribute("Disabled", "");
+	}
+
 	base.Database.get(base.Database.ONCE, "threads", (res) => {
-		res = res.filter((thread) => {
-			if (thread !== "System") return true;
+		res = res.filter((thread, index, parent) => {
+			if (thread !== "System") {
+				thread.tid = index;
+				return true;
+			}
 		});
 
 		for (let i = 0; i < res.length; i++) {
 			let thread = DOM("A", {
 				classes: ["mdl-list__item"],
+
+				attributes: {
+					Href: "Viewer/?tid=" + res[i].tid
+				},
 
 				children: [
 					DOM("Span", {
@@ -27,6 +39,7 @@ window.addEventListener("DOMContentLoaded", () => {
 			});
 
 			DOM("#Thread_Search").appendChild(thread);
+			if (base.user) if (res[i].jobs.Owner.hasOwnProperty(base.user.uid)) DOM("#Thread_Admin").appendChild(thread);
 		}
 	});
 

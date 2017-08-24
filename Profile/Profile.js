@@ -69,6 +69,6 @@ window.addEventListener("DOMContentLoaded", () => {
 	});
 
 	DOM("#Profile_Info_Btns_Delete").addEventListener("click", () => {
-		doc.querySelector("#Dialogs_Profile_ConfirmDelete").showModal();
+		doc.querySelector("#Dialogs_Profile_DeleteConfirmer").showModal();
 	});
 });

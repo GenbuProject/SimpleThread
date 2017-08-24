@@ -2,6 +2,15 @@
 	Width: 100%;
 }
 
-#Thread_Search > A[Disabled] {
+#Thread > Div[Disabled] {
+	Display: None;
+}
+
+#Thread A {
+	Text-Decoration: None;
+	Cursor: Pointer;
+}
+
+#Thread A[Disabled] {
 	Display: None;
 }
