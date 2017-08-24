@@ -1,6 +1,10 @@
 window.base = parent.base || {};
 
 window.addEventListener("DOMContentLoaded", () => {
+	if (!base.Database) {
+		location.href = "/SimpleThread/Error/403.10/";
+	}
+
 	DOM('@A[Href]:Not([Target]):Not([Href^="javascript:"])').forEach((elem) => {
 		elem.addEventListener("click", (event) => {
 			event.preventDefault();
@@ -13,23 +17,31 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	document.head.appendChild(DOM("Style", { id: "CustomTag_Manager" }));
 
-	let timer = setInterval(() => {
-		try {
-			DOM("#CustomTag_Manager").textContent = (() => {
-				return new Style({
-					"*[Data-TagID='ProfilePhoto']": {
-						"Background-Image": ["URL(", base.user.photoURL, ")"].join('"')
-					},
+	let counter = 0,
+		timer = setInterval(() => {
+			counter++;
 
-					"*[Data-TagID='ProfilePhoto--Btn']": {
-						"Background-Image": ["URL(", base.user.photoURL, ")"].join('"')
-					}
-				}).textContent;
-			})();
+			try {
+				DOM("#CustomTag_Manager").textContent = (() => {
+					return new Style({
+						"*[Data-TagID='ProfilePhoto']": {
+							"Background-Image": ["URL(", base.user.photoURL, ")"].join('"')
+						},
 
-			clearInterval(timer);
-		} catch (error) {
-			console.warn("Reconnecting...");
-		}
-	}, 250);
+						"*[Data-TagID='ProfilePhoto--Btn']": {
+							"Background-Image": ["URL(", base.user.photoURL, ")"].join('"')
+						}
+					}).textContent;
+				})();
+
+				clearInterval(timer);
+			} catch (error) {
+				console.warn("Reconnecting...");
+
+				if (counter > 20) {
+					console.info("Stop reconnecting");
+					clearInterval(timer);
+				}
+			}
+		}, 250);
 });

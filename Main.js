@@ -30,8 +30,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
 			DOM("#Header_SignInOut").textContent = "Sign Out";
 		} else {
-			DOM('@A[Data-TagID="AccountBtn"]').forEach((btn) => {
-				btn.setAttribute("SignOut", "");
+			DOM('@*[Data-TagID="ProfilePhoto--Btn"]').forEach((btn) => {
+				btn.setAttribute("Disabled", "");
 			});
 		}
 

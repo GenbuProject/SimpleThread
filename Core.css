@@ -26,6 +26,6 @@ A:Not([Href]) {
 	Background: Transparent Center / Cover;
 }
 
-*[Data-TagID="ProfilePhoto--Btn"][SignOut] {
+*[Data-TagID="ProfilePhoto--Btn"][Disabled] {
 	Display: None;
 }
