@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
 	if (!base.user) {
-		location.href = "/Error/401/";
+		location.href = "/SimpleThread/Error/401/";
 	}
 	
 	DOM("#Profile_Info_Name").classList.add("is-dirty"),

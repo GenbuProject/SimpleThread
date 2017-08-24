@@ -1,3 +1,3 @@
 setTimeout(() => {
-	window.open("/", "_parent");
+	window.open("/SimpleThread/", "_parent");
 }, 5000);

@@ -2,7 +2,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	let querys = location.querySort();
 
 	if (!querys.TID) {
-		location.href = "/Error/406/"
+		location.href = "/SimpleThread/Error/406/"
 	}
 
 	base.Database.get(base.Database.ONCE, "threads/" + querys.TID + "/data", (res) => {

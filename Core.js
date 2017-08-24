@@ -2,7 +2,7 @@ window.base = parent.base || {};
 
 window.addEventListener("DOMContentLoaded", () => {
 	if (!base.Database) {
-		location.href = "/Error/403.10/";
+		location.href = "/SimpleThread/Error/403.10/";
 	}
 
 	DOM('@A[Href]:Not([Target]):Not([Href^="javascript:"])').forEach((elem) => {
