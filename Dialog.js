@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 
-	DOM("#Dialogs_Profile_ConfirmDelete_Btns_Yes").addEventListener("click", () => {
+	DOM("#Dialogs_Profile_DeleteConfirmer_Btns_Yes").addEventListener("click", () => {
 		if (DOM("#Dialogs_Profile_ConfirmDelete_Content_Email_Input").value == base.user.email) {
 			base.delete();
 		} else {
@@ -50,5 +50,38 @@ window.addEventListener("DOMContentLoaded", () => {
 				]
 			});
 		});
+	});
+
+	DOM("#Dialogs_Thread_Poster_Content_Value_Input").addEventListener("input", (event) => {
+		if (event.target.value.replace(/\s/g, "").length == 0) {
+			DOM("#Dialogs_Thread_Poster_Btns_OK").classList.add("mdl-button--disabled");
+		} else {
+			DOM("#Dialogs_Thread_Poster_Btns_OK").classList.remove("mdl-button--disabled");
+		}
+	});
+
+	DOM("#Dialogs_Thread_Poster_Btns_OK").addEventListener("click", (event) => {
+		if (!DOM("#Dialogs_Thread_Poster_Btns_OK").classList.contains("mdl-button--disabled")) {
+			DOM("#Screens_Loading").removeAttribute("Disabled");
+
+			base.Database.transaction("threads/" + DOM("#Dialogs_Thread_Poster_Content_TID").value + "/data", (res) => {
+				console.log(res);
+
+				base.Database.set("threads/" + DOM("#Dialogs_Thread_Poster_Content_TID").value + "/data/" + res.length, {
+					uid: base.user.uid,
+					content: DOM("#Dialogs_Thread_Poster_Content_Value_Input").value,
+					createdAt: new Date().getTime()
+				});
+
+				DOM("#Screens_Loading").setAttribute("Disabled", "");
+				DOM("#Dialogs_Thread_Poster").close();
+			});
+		}
+	});
+
+	DOM("#Dialogs_Thread_Poster_Btns_Cancel").addEventListener("click", () => {
+		DOM("#Dialogs_Thread_Poster_Btns_OK").classList.add("mdl-button--disabled"),
+		DOM("#Dialogs_Thread_Poster_Content_Value").classList.remove("is-dirty"),
+		DOM("#Dialogs_Thread_Poster_Content_Value_Input").value = "";
 	});
 });

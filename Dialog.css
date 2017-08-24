@@ -33,3 +33,9 @@ Dialog[ID^="Dialogs"] Div.mdl-textfield {
 #Dialogs_Profile_InfoViewer_Content_Info_Link Img {
 	Width: 1em;
 }
+
+
+
+#Dialogs_Thread_Poster_Content_Value_Input {
+	Resize: None;
+}
