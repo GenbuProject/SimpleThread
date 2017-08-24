@@ -1,6 +1,8 @@
 Div[UUID="Thread_Post"] {
 	Width: 100%;
 	Min-Height: Auto;
+
+	Margin: 5vh 0;
 }
 
 Div[UUID="Thread_Post_Header"] > * {

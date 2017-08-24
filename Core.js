@@ -24,11 +24,11 @@ window.addEventListener("DOMContentLoaded", () => {
 			try {
 				DOM("#CustomTag_Manager").textContent = (() => {
 					return new Style({
-						"*[Data-TagID='ProfilePhoto']": {
+						'*[Data-TagID="ProfilePhoto"]': {
 							"Background-Image": ["URL(", base.user.photoURL, ")"].join('"')
 						},
 
-						"*[Data-TagID='ProfilePhoto--Btn']": {
+						'*[Data-TagID="ProfilePhoto--Btn"]': {
 							"Background-Image": ["URL(", base.user.photoURL, ")"].join('"')
 						}
 					}).textContent;
