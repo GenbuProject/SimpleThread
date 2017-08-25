@@ -2,13 +2,12 @@ window.addEventListener("DOMContentLoaded", () => {
 	if (!base.user) {
 		location.href = "/SimpleThread/Error/401/";
 	}
-	
-	DOM("#Profile_Info_Name").classList.add("is-dirty"),
-	DOM("#Profile_Info_Name_Input").value = base.user.displayName;
 
 	base.Database.get(base.Database.INTERVAL, "users/" + base.user.uid, (res) => {
 		res.links = res.links || [];
 
+		DOM("#Profile_Info_Name").classList.add("is-dirty"),
+		DOM("#Profile_Info_Name_Input").value = res.userName;
 		DOM("#Profile_Info_Detail").classList.add("is-dirty"),
 		DOM("#Profile_Info_Detail_Input").value = res.detail;
 
@@ -38,9 +37,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 	DOM("#Profile_Info_Btns_Apply").addEventListener("click", () => {
-		base.user.updateProfile({ displayName: DOM("#Profile_Info_Name_Input").value });
-
 		base.Database.update("users/" + base.user.uid, {
+			userName: DOM("#Profile_Info_Name_Input").value,
 			detail: DOM("#Profile_Info_Detail_Input").value,
 
 			links: (() => {
