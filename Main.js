@@ -15,6 +15,7 @@ window.addEventListener("DOMContentLoaded", () => {
 					base.Database.set("users/" + user.uid, {
 						gplusName: user.providerData[0].displayName,
 						gplusPhoto: user.photoURL,
+						userName: user.providerData[0].displayName,
 						detail: "",
 						links: []
 					});

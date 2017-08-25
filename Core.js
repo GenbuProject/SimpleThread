@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
 			} catch (error) {
 				console.warn("Reconnecting...");
 
-				if (counter > 20) {
+				if (counter > 40) {
 					console.info("Stop reconnecting");
 					clearInterval(timer);
 				}
