@@ -4,6 +4,6 @@ window.addEventListener("DOMContentLoaded", () => {
 			if (thread !== "System") return true;
 		});
 
-		DOM("#Top_ThreadQuantity").textContent = res.length;
+		DOM("#Top_ThreadQuantity").textContent = res.length - 1;
 	});
 });
