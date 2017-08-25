@@ -19,6 +19,8 @@ window.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 
+
+
 	DOM("#Dialogs_Thread_InfoInputer_Btns_OK").addEventListener("click", () => {
 		base.Database.transaction("threads", (res) => {
 			let now = new Date().getTime();
@@ -45,12 +47,18 @@ window.addEventListener("DOMContentLoaded", () => {
 					{
 						uid: base.user.uid,
 						content: DOM("#Dialogs_Thread_InfoInputer_Content_Name_Input").value,
+						plusCount: 0,
 						createdAt: now
 					}
 				]
 			});
+			
+			DOM("#Dialogs_Thread_InfoInputer").close();
+			parent.document.querySelector("IFrame.mdl-layout__content").src = "Thread/Viewer/?tid=" + res.length;
 		});
 	});
+
+
 
 	DOM("#Dialogs_Thread_Poster_Content_Value_Input").addEventListener("input", (event) => {
 		if (event.target.value.replace(/\s/g, "").length == 0) {
@@ -70,9 +78,14 @@ window.addEventListener("DOMContentLoaded", () => {
 				base.Database.set("threads/" + DOM("#Dialogs_Thread_Poster_Content_TID").value + "/data/" + res.length, {
 					uid: base.user.uid,
 					content: DOM("#Dialogs_Thread_Poster_Content_Value_Input").value,
+					plusCount: 0,
 					createdAt: new Date().getTime()
 				});
 
+				DOM("#Dialogs_Thread_Poster_Btns_OK").classList.add("mdl-button--disabled"),
+				DOM("#Dialogs_Thread_Poster_Content_Value").classList.remove("is-dirty"),
+				DOM("#Dialogs_Thread_Poster_Content_Value_Input").value = "";
+				
 				DOM("#Screens_Loading").setAttribute("Disabled", "");
 				DOM("#Dialogs_Thread_Poster").close();
 			});

@@ -3,6 +3,7 @@ Root
 	> xxxxxxxx
 		> gplusName: String
 		> gplusPhoto: URLString
+		> userName: String
 		> detail: String
 		> links: Array<Object>
 			> [0]
@@ -38,6 +39,7 @@ Root
 				> uid: UID
 				> content: String
 				> createdAt: DateString
+				> plusCount: Number
 
 			> 1
 				> ...

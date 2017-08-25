@@ -5,113 +5,162 @@ window.addEventListener("DOMContentLoaded", () => {
 		location.href = "/SimpleThread/Error/406/";
 	}
 
+	base.Database.get(base.Database.INTERVAL, "users", (res) => {
+		let photoStyles = [];
+
+		for (let uid in res) {
+			res[uid].gplusPhoto || (res[uid].gplusPhoto = "");
+
+			let photoStyle = (() => {
+				let style = new Style((() => {
+					let prop = {};
+						prop[`A[UUID="Thread_Post_Header_ActorPhoto"][Data-UID="${uid}"]`] = {
+							"Background-Image": `URL(${res[uid].gplusPhoto})`
+						};
+
+					return prop;
+				})());
+
+				return style.textContent;
+			})();
+
+			photoStyles.push(photoStyle);
+		}
+
+		DOM('$Style[UUID="Thread_Post_Header_ActorPhoto--Manager"]').textContent = photoStyles.join("\r\n");
+	});
+
 	base.Database.get(base.Database.INTERVAL, "threads/" + querys.TID + "/data", (res) => {
-		console.info(res);
+		res = res.filter((post, index, parent) => {
+			if (post) {
+				post.pid = index;
+				return true;
+			}
+		});
 
-		for (let i = 0; i < res.length; i++) {
-			let rnd = new DOM.Randomizer(DOM.Randomizer.TYPE.LEVEL3).generate(16);
+		if (DOM("#Thread").children.length < res.length) {
+			for (let i = DOM("#Thread").children.length; i < res.length; i++) {
+				let rnd = new DOM.Randomizer(DOM.Randomizer.TYPE.LEVEL3).generate(16);
 
-			let post = DOM("Div", {
-				classes: ["mdl-card", "mdl-shadow--2dp"],
+				let post = DOM("Div", {
+					classes: ["mdl-card", "mdl-shadow--2dp"],
 
-				attributes: {
-					"UUID": "Thread_Post",
-					"Data-UID": res[i].uid
-				},
+					attributes: {
+						"UUID": "Thread_Post",
+						"Data-UID": res[i].uid,
+						"Data-PID": res[i].pid
+					},
 
-				children: [
-					DOM("Div", {
-						classes: ["mdl-card__title", "mdl-card--border"],
+					children: [
+						DOM("Div", {
+							classes: ["mdl-card__title", "mdl-card--border"],
 
-						attributes: {
-							"UUID": "Thread_Post_Header"
-						},
+							attributes: {
+								"UUID": "Thread_Post_Header"
+							},
 
-						children: [
-							DOM("A", {
-								classes: ["mdl-button", "mdl-js-button", "mdl-button--icon", "mdl-js-ripple-effect"],
+							children: [
+								DOM("A", {
+									classes: ["mdl-button", "mdl-js-button", "mdl-button--icon", "mdl-js-ripple-effect"],
 
-								attributes: {
-									"Data-TagID": "ProfilePhoto--Btn",
-									"Data-UID": res[i].uid
-								}
-							}),
+									attributes: {
+										"UUID": "Thread_Post_Header_ActorPhoto",
+										"Data-UID": res[i].uid
+									}
+								}),
 
-							DOM("Span", {
-								classes: ["mdl-card__title-text"],
+								DOM("Span", {
+									classes: ["mdl-card__title-text"],
 
-								attributes: {
-									"UUID": "Thread_Post_Header_Actor"
-								}
-							}),
+									attributes: {
+										"UUID": "Thread_Post_Header_Actor"
+									}
+								}),
 
-							DOM("Div", {
-								classes: ["mdl-layout-spacer"]
-							}),
+								DOM("Div", {
+									classes: ["mdl-layout-spacer"]
+								}),
 
-							DOM("Span", {
-								text: new Date(res[i].createdAt).toLocaleString(),
+								DOM("Span", {
+									text: new Date(res[i].createdAt).toLocaleString(),
 
-								attributes: {
-									"UUID": "Thread_Post_Header_CreatedAt"
-								}
-							}),
-						]
-					}),
+									attributes: {
+										"UUID": "Thread_Post_Header_CreatedAt"
+									}
+								}),
+							]
+						}),
 
-					DOM("Div", {
-						classes: ["mdl-card__supporting-text"],
-						text: res[i].content,
+						DOM("Div", {
+							classes: ["mdl-card__supporting-text"],
+							text: res[i].content,
 
-						attributes: {
-							"UUID": "Thread_Post_Content"
-						}
-					}),
+							attributes: {
+								"UUID": "Thread_Post_Content"
+							}
+						}),
 
-					DOM("Div", {
-						classes: ["mdl-card__actions"],
+						DOM("Div", {
+							classes: ["mdl-card__actions"],
 
-						attributes: {
-							"UUID": "Thread_Post_Actions"
-						},
+							attributes: {
+								"UUID": "Thread_Post_Actions"
+							},
 
-						children: [
-							DOM("Label", {
-								id: "Thread_Post_Actions_Plus_" + rnd,
-								classes: ["mdl-icon-toggle", "mdl-js-icon-toggle", "mdl-js-ripple-effect"],
+							children: [
+								DOM("Label", {
+									id: "Thread_Post_Actions_Plus_" + rnd,
+									classes: ["mdl-icon-toggle", "mdl-js-icon-toggle", "mdl-js-ripple-effect"],
 
-								attributes: {
-									"For": "Thread_Post_Actions_Plus_" + rnd + "_Input"
-								},
+									attributes: {
+										"For": `Thread_Post_Actions_Plus_${rnd}_Input`
+									},
 
-								children: [
-									DOM("Input", {
-										id: "Thread_Post_Actions_Plus_" + rnd + "_Input",
-										classes: ["mdl-icon-toggle__input"],
-				
-										attributes: {
-											"Type": "Checkbox"
-										}
-									}),
+									children: [
+										DOM("Input", {
+											id: `Thread_Post_Actions_Plus_${rnd}_Input`,
+											classes: ["mdl-icon-toggle__input"],
+					
+											attributes: {
+												"UUID": "Thread_Post_Actions_Plus_Input",
+												"Type": "Checkbox"
+											}
+										}),
 
-									DOM("Button", {
-										id: "Thread_Post_Actions_Plus_" + rnd + "_Btn",
-										classes: ["mdl-button", "mdl-js-button", "mdl-icon-toggle__label"],
-										text: "+1"
-									})
-								]
-							})
-						]
-					})
-				]
-			});
+										DOM("Button", {
+											id: `Thread_Post_Actions_Plus_${rnd}_Btn`,
+											classes: ["mdl-button", "mdl-js-button", "mdl-icon-toggle__label"],
+											text: "+1",
 
-			base.Database.get(base.Database.ONCE, "users/" + res[i].uid, (userRes) => {
-				post.querySelector('Span[UUID="Thread_Post_Header_Actor"]').textContent = userRes.gplusName;
-				post.querySelector('A[Data-TagID="ProfilePhoto--Btn"]').style.background = `URL("${userRes.gplusPhoto}") Center / Cover`;
-			});
+											attributes: {
+												"UUID": "Thread_Post_Actions_Plus_Btn"
+											}
+										}),
 
-			DOM("#Thread").appendChild(post);
+										DOM("Span", {
+											id: `Thread_Post_Actions_Plus_${rnd}_Count`,
+											text: "0",
+
+											attributes: {
+												"UUID": "Thread_Post_Actions_Plus_Count"
+											}
+										})
+									]
+								})
+							]
+						})
+					]
+				});
+
+				base.Database.get(base.Database.ONCE, "users/" + res[i].uid, (userRes) => {
+					componentHandler.upgradeElement(post.querySelector(`Label#Thread_Post_Actions_Plus_${rnd}`));
+					post.querySelector('Span[UUID="Thread_Post_Header_Actor"]').textContent = userRes.userName;
+				});
+
+				DOM("#Thread").appendChild(post);
+			}
+		} else {
+			
 		}
 	});
 
@@ -120,7 +169,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	let doc = parent.document;
 		doc.querySelector("#Dialogs_Thread_Poster_Content_TID").value = querys.TID;
 
-	DOM('@A[Data-TagID="ProfilePhoto--Btn"]').forEach((btn) => {
+	DOM('@A[UUID="Thread_Post_Header_ActorPhoto"]').forEach((btn) => {
 		btn.addEventListener("click", () => {
 			doc.querySelector("#Dialogs_Profile_InfoViewer").showModal();
 		});
@@ -128,5 +177,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	DOM("#FlowPanel_Btns_CreatePost").addEventListener("click", () => {
 		doc.querySelector("#Dialogs_Thread_Poster").showModal();
+
+		//DOM("#FlowPanel").style.display = "Block";
 	});
 });

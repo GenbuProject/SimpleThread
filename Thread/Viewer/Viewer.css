@@ -13,6 +13,14 @@ Div[UUID="Thread_Post_Header"] > * {
 	Font-Size: Medium;
 }
 
+A[UUID="Thread_Post_Header_ActorPhoto"] {
+	Background: Transparent Center / Cover;
+}
+
+A[UUID="Thread_Post_Header_ActorPhoto"][Disabled] {
+	Display: None;
+}
+
 Span[UUID="Thread_Post_Header_Actor"] {
 	Align-Self: Auto;
 
@@ -22,6 +30,17 @@ Span[UUID="Thread_Post_Header_Actor"] {
 Span[UUID="Thread_Post_Header_CreatedAt"] {
 	Color: #BDBDBD;
 	Font-Size: 80%;
+}
+
+Button[UUID="Thread_Post_Actions_Plus_Btn"] {
+	Margin-Right: 0.5rem;
+}
+
+Span[UUID="Thread_Post_Actions_Plus_Count"] {
+	Vertical-Align: Middle;
+
+	Color: Gray;
+	Font-Size: 14px;
 }
 
 
