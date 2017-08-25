@@ -32,6 +32,10 @@ Span[UUID="Thread_Post_Header_CreatedAt"] {
 	Font-Size: 80%;
 }
 
+Div[UUID="Thread_Post_Content"] {
+	White-Space: Pre-Wrap;
+}
+
 Button[UUID="Thread_Post_Actions_Plus_Btn"] {
 	Margin-Right: 0.5rem;
 }
