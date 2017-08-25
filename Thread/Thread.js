@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	base.Database.get(base.Database.ONCE, "threads", (res) => {
 		res = res.filter((thread, index, parent) => {
-			if (thread !== "System") {
+			if (thread !== "SYSTEM") {
 				thread.tid = index;
 				return true;
 			}
