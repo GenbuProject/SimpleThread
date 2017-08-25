@@ -45,3 +45,18 @@ window.addEventListener("DOMContentLoaded", () => {
 			}
 		}, 250);
 });
+
+Notification.requestPermission(function (state) {
+	switch (state) {
+		case "default":
+			break;
+			
+		case "granted":
+			console.info("通知の許可が確認されました");
+			break;
+			
+		case "denied":
+			console.warn("通知の許可が確認されません");
+			break;
+	}
+});
