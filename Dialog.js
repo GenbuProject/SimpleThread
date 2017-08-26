@@ -1,6 +1,14 @@
 window.addEventListener("DOMContentLoaded", () => {
+	let watchers = [];
+
 	DOM('@Dialog').forEach((dialog) => {
 		dialogPolyfill.registerDialog(dialog);
+
+		if (dialog.querySelector('Button[Data-Action="Dialog_Submit"]')) {
+			dialog.addEventListener("keydown", (event) => {
+				console.log(event);
+			});
+		}
 	});
 	
 	DOM('@Dialog Button[Data-Action="Dialog_Close"]').forEach((btn) => {
@@ -20,6 +28,38 @@ window.addEventListener("DOMContentLoaded", () => {
 	});
 
 
+
+	watchers.push({
+		valueObj: { value: "" },
+		watcher: null
+	}); watchers[watchers.length - 1].watcher = new DOM.Watcher({
+		target: watchers[watchers.length - 1].valueObj,
+		onGet: () => { watchers[watchers.length - 1].valueObj.value = DOM("#Dialogs_Profile_InfoViewer_Content_UID").value },
+
+		onChange: (watcher) => {
+			base.Database.get(base.Database.ONCE, `users/${watcher.newValue}`, (res) => {
+				DOM("#Dialogs_Profile_InfoViewer_Content_Photo").dataset.uid = watcher.newValue,
+				DOM("#Dialogs_Profile_InfoViewer_Content_Info_Name").textContent = res.userName,
+				DOM("#Dialogs_Profile_InfoViewer_Content_Info_Detail").textContent = res.detail;
+			});
+		}
+	});
+
+	watchers.forEach((watcherObj) => {
+		DOM.Watcher.addWatcher(watcherObj.watcher);
+	});
+
+
+
+	[DOM("#Dialogs_Thread_InfoInputer_Content_Name_Input"), DOM("#Dialogs_Thread_InfoInputer_Content_Overview_Input"), DOM("#Dialogs_Thread_InfoInputer_Content_Detail_Input")].forEach((textarea) => {
+		textarea.addEventListener("input", (event) => {
+			if (event.target.value.replace(/\s/g, "").length == 0) {
+				DOM("#Dialogs_Thread_InfoInputer_Btns_OK").classList.add("mdl-button--disabled");
+			} else {
+				DOM("#Dialogs_Thread_InfoInputer_Btns_OK").classList.remove("mdl-button--disabled");
+			}
+		});
+	});
 
 	DOM("#Dialogs_Thread_InfoInputer_Btns_OK").addEventListener("click", () => {
 		base.Database.transaction("threads", (res) => {

@@ -20,10 +20,26 @@ Dialog[ID^="Dialogs"] Div.mdl-textfield {
 	Width: 20%;
 
 	Margin-Right: 5%;
+
+	Background: Transparent Center / Cover;
+	Border-Radius: 100%;
+}
+
+#Dialogs_Profile_InfoViewer_Content_Photo::Before {
+	Content: "";
+	
+	Display: Block;
+	Padding-Top: 100%;
+}
+
+#Dialogs_Profile_InfoViewer_Content_Info {
+	Flex: 1;
 }
 
 #Dialogs_Profile_InfoViewer_Content_Info_Detail {
 	Padding: 1em 0 4em 0;
+
+	White-Space: Pre-Wrap;
 }
 
 #Dialogs_Profile_InfoViewer_Content_Info_Link {

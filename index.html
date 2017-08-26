@@ -26,6 +26,8 @@
 		<Script Src = "Dialog.js"></Script>
 		<Link Rel = "StyleSheet" Href = "Dialog.css" />
 
+		<Style UUID = "Dialogs_Profile_InfoViewer_Content_Photo--Manager"></Style>
+
 		<Script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -89,7 +91,7 @@
 					</Div>
 
 					<Div ID = "Dialogs_Account_CreateNotify_Btns" Class = "mdl-dialog__actions">
-						<Button ID = "Dialogs_Account_CreateNotify_Btns_OK" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Data-Action = "Dialog_Close" Type = "Button">閉じる</Button>
+						<Button ID = "Dialogs_Account_CreateNotify_Btns_OK" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Type = "Button" Data-Action = "Dialog_Close">閉じる</Button>
 					</Div>
 				</Dialog>
 
@@ -99,7 +101,7 @@
 					</Div>
 
 					<Div ID = "Dialogs_Account_DeleteNotify_Btns" Class = "mdl-dialog__actions">
-						<Button ID = "Dialogs_Account_DeleteNotify_Btns_OK" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Data-Action = "Dialog_Close" Type = "Button">閉じる</Button>
+						<Button ID = "Dialogs_Account_DeleteNotify_Btns_OK" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Type = "Button" Data-Action = "Dialog_Close">閉じる</Button>
 					</Div>
 				</Dialog>
 			</Div>
@@ -111,7 +113,7 @@
 					</Div>
 
 					<Div ID = "Dialogs_Profile_ChangeNotify_Btns" Class = "mdl-dialog__actions">
-						<Button ID = "Dialogs_Profile_ChangeNotify_Btns_OK" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Data-Action = "Dialog_Close" Type = "Button">閉じる</Button>
+						<Button ID = "Dialogs_Profile_ChangeNotify_Btns_OK" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Type = "Button" Data-Action = "Dialog_Close">閉じる</Button>
 					</Div>
 				</Dialog>
 
@@ -131,21 +133,18 @@
 
 					<Div ID = "Dialogs_Profile_DeleteConfirmer_Btns" Class = "mdl-dialog__actions">
 						<Button ID = "Dialogs_Profile_DeleteConfirmer_Btns_Yes" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Type = "Button">はい</Button>
-						<Button ID = "Dialogs_Profile_DeleteConfirmer_Btns_No" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Data-Action = "Dialog_Close" Type = "Button">いいえ</Button>
+						<Button ID = "Dialogs_Profile_DeleteConfirmer_Btns_No" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Type = "Button" Data-Action = "Dialog_Close">いいえ</Button>
 					</Div>
 				</Dialog>
 
 				<Dialog ID = "Dialogs_Profile_InfoViewer" Class = "mdl-dialog">
 					<Div ID = "Dialogs_Profile_InfoViewer_Content" Class = "mdl-dialog__content">
-						<Div ID = "Dialogs_Profile_InfoViewer_Content_Photo" Data-TagID = "ProfilePhoto"></Div>
+						<Div ID = "Dialogs_Profile_InfoViewer_Content_Photo" Data-UID = ""></Div>
 
 						<Div ID = "Dialogs_Profile_InfoViewer_Content_Info">
-							<Span ID = "Dialogs_Profile_InfoViewer_Content_Info_Name" Class = "mdl-layout__title">プログラなーいGenboo</Span>
+							<Span ID = "Dialogs_Profile_InfoViewer_Content_Info_Name" Class = "mdl-layout__title"></Span>
 
-							<Div ID = "Dialogs_Profile_InfoViewer_Content_Info_Detail">
-								Google+で色々やってる暇人です。<Br />
-								一応Simple Threadのオーナーやってます✌('ω')ｽｯ
-							</Div>
+							<Div ID = "Dialogs_Profile_InfoViewer_Content_Info_Detail"></Div>
 
 							<Span Class = "mdl-layout__title">リンク</Span>
 
@@ -161,10 +160,12 @@
 								</Div>
 							</Div>
 						</Div>
+
+						<Input ID = "Dialogs_Profile_InfoViewer_Content_UID" Type = "Hidden" Value = "" />
 					</Div>
 
 					<Div ID = "Dialogs_Profile_InfoViewer_Btns" Class = "mdl-dialog__actions">
-						<Button ID = "Dialogs_Profile_InfoViewer_Btns_OK" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Data-Action = "Dialog_Close" Type = "Button">閉じる</Button>
+						<Button ID = "Dialogs_Profile_InfoViewer_Btns_OK" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Type = "Button" Data-Action = "Dialog_Close">閉じる</Button>
 					</Div>
 				</Dialog>
 			</Div>
@@ -189,8 +190,8 @@
 					</Div>
 
 					<Div ID = "Dialogs_Thread_InfoInputer_Btns" Class = "mdl-dialog__actions">
-						<Button ID = "Dialogs_Thread_InfoInputer_Btns_OK" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Type = "Button">作成</Button>
-						<Button ID = "Dialogs_Thread_InfoInputer_Btns_Cancel" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Data-Action = "Dialog_Close" Type = "Button">キャンセル</Button>
+						<Button ID = "Dialogs_Thread_InfoInputer_Btns_OK" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Type = "Button" Data-Action = "Dialog_Submit">作成</Button>
+						<Button ID = "Dialogs_Thread_InfoInputer_Btns_Cancel" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Type = "Button" Data-Action = "Dialog_Close">キャンセル</Button>
 					</Div>
 				</Dialog>
 
@@ -205,8 +206,8 @@
 					</Div>
 
 					<Div ID = "Dialogs_Thread_Poster_Btns" Class = "mdl-dialog__actions">
-						<Button ID = "Dialogs_Thread_Poster_Btns_OK" Class = "mdl-button mdl-js-button mdl-button--disabled mdl-js-ripple-effect" Type = "Button">投稿</Button>
-						<Button ID = "Dialogs_Thread_Poster_Btns_Cancel" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Data-Action = "Dialog_Close" Type = "Button">キャンセル</Button>
+						<Button ID = "Dialogs_Thread_Poster_Btns_OK" Class = "mdl-button mdl-js-button mdl-button--disabled mdl-js-ripple-effect" Type = "Button" Data-Action = "Dialog_Submit">投稿</Button>
+						<Button ID = "Dialogs_Thread_Poster_Btns_Cancel" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Type = "Button" Data-Action = "Dialog_Close">キャンセル</Button>
 					</Div>
 				</Dialog>
 			</Div>
