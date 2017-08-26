@@ -1,11 +1,18 @@
 window.addEventListener("DOMContentLoaded", () => {
+	if (!base.user) {
+		DOM("#FlowPanel_Btns_CreatePost").setAttribute("Disabled", "");
+	}
+
 	let querys = location.querySort();
 
 	if (!querys.TID) {
 		location.href = "/SimpleThread/Error/406/";
 	}
+	
+	let doc = parent.document;
+		doc.querySelector("#Dialogs_Thread_Poster_Content_TID").value = querys.TID;
 
-	base.Database.get(base.Database.INTERVAL, "users", (res) => {
+	base.Database.get(base.Database.ONCE, "users", (res) => {
 		let photoStyles = [];
 
 		for (let uid in res) {
@@ -46,9 +53,11 @@ window.addEventListener("DOMContentLoaded", () => {
 					classes: ["mdl-card", "mdl-shadow--2dp"],
 
 					attributes: {
-						"UUID": "Thread_Post",
-						"Data-UID": res[i].uid,
-						"Data-PID": res[i].pid
+						"UUID": "Thread_Post"
+					},
+
+					dataset: {
+						"pid": res[i].pid
 					},
 
 					children: [
@@ -64,8 +73,18 @@ window.addEventListener("DOMContentLoaded", () => {
 									classes: ["mdl-button", "mdl-js-button", "mdl-button--icon", "mdl-js-ripple-effect"],
 
 									attributes: {
-										"UUID": "Thread_Post_Header_ActorPhoto",
-										"Data-UID": res[i].uid
+										"UUID": "Thread_Post_Header_ActorPhoto"
+									},
+
+									dataset: {
+										"uid": res[i].uid
+									},
+
+									events: {
+										"click": (event) => {
+											doc.querySelector("#Dialogs_Profile_InfoViewer_Content_UID").value = res[i].uid;
+											doc.querySelector("#Dialogs_Profile_InfoViewer").showModal();
+										}
 									}
 								}),
 
@@ -124,6 +143,12 @@ window.addEventListener("DOMContentLoaded", () => {
 											attributes: {
 												"UUID": "Thread_Post_Actions_Plus_Input",
 												"Type": "Checkbox"
+											},
+
+											events: {
+												"click": (event) => {
+													
+												}
 											}
 										}),
 
@@ -139,7 +164,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 										DOM("Span", {
 											id: `Thread_Post_Actions_Plus_${rnd}_Count`,
-											text: "0",
+											text: 0,
 
 											attributes: {
 												"UUID": "Thread_Post_Actions_Plus_Count"
@@ -165,15 +190,6 @@ window.addEventListener("DOMContentLoaded", () => {
 	});
 
 
-
-	let doc = parent.document;
-		doc.querySelector("#Dialogs_Thread_Poster_Content_TID").value = querys.TID;
-
-	DOM('@A[UUID="Thread_Post_Header_ActorPhoto"]').forEach((btn) => {
-		btn.addEventListener("click", () => {
-			doc.querySelector("#Dialogs_Profile_InfoViewer").showModal();
-		});
-	});
 
 	DOM("#FlowPanel_Btns_CreatePost").addEventListener("click", () => {
 		doc.querySelector("#Dialogs_Thread_Poster").showModal();

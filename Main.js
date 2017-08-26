@@ -36,6 +36,31 @@ window.addEventListener("DOMContentLoaded", () => {
 			});
 		}
 
+		base.Database.get(base.Database.ONCE, "users", (res) => {
+			let photoStyles = [];
+	
+			for (let uid in res) {
+				res[uid].gplusPhoto || (res[uid].gplusPhoto = "");
+	
+				let photoStyle = (() => {
+					let style = new Style((() => {
+						let prop = {};
+							prop[`#Dialogs_Profile_InfoViewer_Content_Photo[Data-UID="${uid}"]`] = {
+								"Background-Image": `URL(${res[uid].gplusPhoto})`
+							};
+	
+						return prop;
+					})());
+	
+					return style.textContent;
+				})();
+	
+				photoStyles.push(photoStyle);
+			}
+	
+			DOM('$Style[UUID="Dialogs_Profile_InfoViewer_Content_Photo--Manager"]').textContent = photoStyles.join("\r\n");
+		});
+
 
 
 		let querys = location.querySort();

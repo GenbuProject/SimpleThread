@@ -65,3 +65,7 @@ Span[UUID="Thread_Post_Actions_Plus_Count"] {
 
 	Padding: 5vh 4vw;
 }
+
+#FlowPanel_Btns > *[Disabled] {
+	Display: None;
+}
