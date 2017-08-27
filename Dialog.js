@@ -20,10 +20,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 	DOM("#Dialogs_Profile_DeleteConfirmer_Btns_Yes").addEventListener("click", () => {
-		if (DOM("#Dialogs_Profile_ConfirmDelete_Content_Email_Input").value == base.user.email) {
+		if (DOM("#Dialogs_Profile_DeleteConfirmer_Content_Email_Input").value == base.user.email) {
 			base.delete();
 		} else {
-			DOM("#Dialogs_Profile_ConfirmDelete_Content_Email").classList.add("is-invalid");
+			DOM("#Dialogs_Profile_DeleteConfirmer_Content_Email").classList.add("is-invalid");
 		}
 	});
 
@@ -90,7 +90,9 @@ window.addEventListener("DOMContentLoaded", () => {
 						plusCount: 0,
 						createdAt: now
 					}
-				]
+				],
+
+				password: ""
 			});
 			
 			DOM("#Dialogs_Thread_InfoInputer").close();

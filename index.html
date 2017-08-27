@@ -126,8 +126,9 @@
 						処理を続行するにはメールアドレスを入力してください。
 
 						<Div ID = "Dialogs_Profile_DeleteConfirmer_Content_Email" Class = "mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							<Input ID = "Dialogs_Profile_DeleteConfirmer_Content_Email_Input" Class = "mdl-textfield__input" Type = "Email" Value = "" />
+							<Input ID = "Dialogs_Profile_DeleteConfirmer_Content_Email_Input" Class = "mdl-textfield__input" Type = "Email" Value = "" Required = "Required" />
 							<Label ID = "Dialogs_Profile_DeleteConfirmer_Content_Email_Label" Class = "mdl-textfield__label" For = "Dialogs_Profile_DeleteConfirmer_Content_Email_Input">メールアドレス...</Label>
+
 							<Span Class = "mdl-textfield__error">無効なメールアドレスです</Span>
 						</Div>
 					</Div>
@@ -175,18 +176,18 @@
 				<Dialog ID = "Dialogs_Thread_InfoInputer" Class = "mdl-dialog">
 					<Div ID = "Dialogs_Thread_InfoInputer_Content" Class = "mdl-dialog__content">
 						<Div ID = "Dialogs_Thread_InfoInputer_Content_Name" Class = "mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							<Input ID = "Dialogs_Thread_InfoInputer_Content_Name_Input" Class = "mdl-textfield__input" Type = "Text" Value = "" />
+							<Input ID = "Dialogs_Thread_InfoInputer_Content_Name_Input" Class = "mdl-textfield__input" Type = "Text" Value = "" Required = "Required" />
 							<Label ID = "Dialogs_Thread_InfoInputer_Content_Name_Label" Class = "mdl-textfield__label" For = "Dialogs_Thread_InfoInputer_Content_Name_Input">スレッド名...</Label>
 						</Div>
 
 						<Div ID = "Dialogs_Thread_InfoInputer_Content_Overview" Class = "mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							<Input ID = "Dialogs_Thread_InfoInputer_Content_Overview_Input" Class = "mdl-textfield__input" Type = "Text" Value = "" />
+							<Input ID = "Dialogs_Thread_InfoInputer_Content_Overview_Input" Class = "mdl-textfield__input" Type = "Text" Value = "" Required = "Required" />
 							<Label ID = "Dialogs_Thread_InfoInputer_Content_Overview_Label" Class = "mdl-textfield__label" For = "Dialogs_Thread_InfoInputer_Content_Overview_Input">概要...</Label>
 						</Div>
 
 						<Div ID = "Dialogs_Thread_InfoInputer_Content_Detail" Class = "mdl-textfield mdl-js-textfield">
 							<Textarea ID = "Dialogs_Thread_InfoInputer_Content_Detail_Input" Class = "mdl-textfield__input" Rows = "10" MaxLength = "500"></Textarea>
-							<Label Class = "mdl-textfield__label" For = "Dialogs_Thread_InfoInputer_Content_Detail_Input">詳細...</Label>
+							<Label Class = "mdl-textfield__label" For = "Dialogs_Thread_InfoInputer_Content_Detail_Input">詳細...(任意)</Label>
 						</Div>
 					</Div>
 
