@@ -78,6 +78,7 @@ window.addEventListener("DOMContentLoaded", () => {
 		!DOM("#Drawer") || DOM("#Drawer").classList.remove("is-visible"),
 		!DOM("$Div.mdl-layout__obfuscator") || DOM("$Div.mdl-layout__obfuscator").classList.remove("is-visible");
 
+		if (DOM("$IFrame#Page").contentWindow.location.pathname != "/SimpleThread/Thread/Viewer/") DOM("#Header_Title").textContent = "Simple Thread";
 		DOM("#Screens_Loading").setAttribute("Disabled", "");
 	});
 

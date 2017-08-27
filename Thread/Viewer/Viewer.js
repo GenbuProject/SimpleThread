@@ -37,6 +37,10 @@ window.addEventListener("DOMContentLoaded", () => {
 		DOM('$Style[UUID="Thread_Post_Header_ActorPhoto--Manager"]').textContent = photoStyles.join("\r\n");
 	});
 
+	base.Database.get(base.Database.INTERVAL, "threads/" + querys.TID, (res) => {
+		doc.querySelector("#Header_Title").textContent = `Simple Thread == ${res.title}`;
+	});
+
 	base.Database.get(base.Database.INTERVAL, "threads/" + querys.TID + "/data", (res) => {
 		res = res.filter((post, index, parent) => {
 			if (post) {

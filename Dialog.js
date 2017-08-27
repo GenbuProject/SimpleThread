@@ -38,9 +38,17 @@ window.addEventListener("DOMContentLoaded", () => {
 
 		onChange: (watcher) => {
 			base.Database.get(base.Database.ONCE, `users/${watcher.newValue}`, (res) => {
+				console.log(res);
+
 				DOM("#Dialogs_Profile_InfoViewer_Content_Photo").dataset.uid = watcher.newValue,
 				DOM("#Dialogs_Profile_InfoViewer_Content_Info_Name").textContent = res.userName,
 				DOM("#Dialogs_Profile_InfoViewer_Content_Info_Detail").textContent = res.detail;
+
+				if (res.links) {
+					for (let i = 0; i < res.links.length; i++) {
+						
+					}
+				}
 			});
 		}
 	});
