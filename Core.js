@@ -13,6 +13,14 @@ window.addEventListener("DOMContentLoaded", () => {
 		});
 	});
 
+	parent.document.querySelector("IFrame#Page").contentWindow.addEventListener("beforeunload", () => {
+		parent.document.querySelectorAll("Dialog[Open]").forEach((dialog) => {
+			dialog.close();
+		});
+
+		parent.document.querySelector("#Screens_Loading").removeAttribute("Disabled");
+	});
+
 
 
 	document.head.appendChild(DOM("Style", { id: "CustomTag_Manager" }));
@@ -47,7 +55,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 Notification.requestPermission(function (state) {
-	switch (state) {
+	/*switch (state) {
 		case "default":
 			break;
 			
@@ -58,5 +66,5 @@ Notification.requestPermission(function (state) {
 		case "denied":
 			console.warn("通知の許可が確認されません");
 			break;
-	}
+	}*/
 });

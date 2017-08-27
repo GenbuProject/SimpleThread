@@ -182,6 +182,10 @@ window.addEventListener("DOMContentLoaded", () => {
 					post.querySelector('Span[UUID="Thread_Post_Header_Actor"]').textContent = userRes.userName;
 				});
 
+				URL.filter(post.querySelector('Div[UUID="Thread_Post_Content"]').textContent).forEach((urlString) => {
+					post.querySelector('Div[UUID="Thread_Post_Content"]').innerHTML = post.querySelector('Div[UUID="Thread_Post_Content"]').innerHTML.replace(urlString, `<A Href = "${urlString}" Target = "_blank">${urlString}</A>`);
+				});
+
 				DOM("#Thread").appendChild(post);
 			}
 		} else {
@@ -194,6 +198,6 @@ window.addEventListener("DOMContentLoaded", () => {
 	DOM("#FlowPanel_Btns_CreatePost").addEventListener("click", () => {
 		doc.querySelector("#Dialogs_Thread_Poster").showModal();
 
-		//DOM("#FlowPanel").style.display = "Block";
+		DOM("#FlowPanel_Btns_CreatePost").setAttribute("Disabled", "");
 	});
 });
