@@ -5,6 +5,8 @@ window.addEventListener("DOMContentLoaded", () => {
 		location.href = "/SimpleThread/Error/403.10/";
 	}
 
+	location.pathname == "/SimpleThread/" || sessionStorage.setItem("com.GenbuProject.SimpleThread.currentPage", location.pathname + location.search);
+
 	DOM('@A[Href]:Not([Target]):Not([Href^="javascript:"])').forEach((elem) => {
 		elem.addEventListener("click", (event) => {
 			event.preventDefault();

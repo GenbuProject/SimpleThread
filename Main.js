@@ -67,6 +67,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
 		if (querys.TID) {
 			DOM("$IFrame.mdl-layout__content").src = "Thread/Viewer/?tid=" + querys.TID;
+		} else {
+			!sessionStorage.getItem("com.GenbuProject.SimpleThread.currentPage") || (DOM("$IFrame.mdl-layout__content").src = sessionStorage.getItem("com.GenbuProject.SimpleThread.currentPage"));
 		}
 	});
 
