@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 		if (dialog.querySelector('Button[Data-Action="Dialog_Submit"]')) {
 			dialog.addEventListener("keydown", (event) => {
-				console.log(event);
+				if (event.ctrlKey && event.keyCode == 13) dialog.querySelector('Button[Data-Action="Dialog_Submit"]').click();
 			});
 		}
 	});
@@ -127,6 +127,8 @@ window.addEventListener("DOMContentLoaded", () => {
 				DOM("#Dialogs_Thread_Poster_Content_Value_Input").value = "";
 				
 				DOM("#Screens_Loading").setAttribute("Disabled", "");
+				DOM("#Page").contentDocument.querySelector("#FlowPanel_Btns_CreatePost").removeAttribute("Disabled");
+				
 				DOM("#Dialogs_Thread_Poster").close();
 			});
 		}
@@ -136,5 +138,7 @@ window.addEventListener("DOMContentLoaded", () => {
 		DOM("#Dialogs_Thread_Poster_Btns_OK").classList.add("mdl-button--disabled"),
 		DOM("#Dialogs_Thread_Poster_Content_Value").classList.remove("is-dirty"),
 		DOM("#Dialogs_Thread_Poster_Content_Value_Input").value = "";
+
+		DOM("#Page").contentDocument.querySelector("#FlowPanel_Btns_CreatePost").removeAttribute("Disabled");
 	});
 });
