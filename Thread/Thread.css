@@ -14,3 +14,8 @@
 #Thread A[Disabled] {
 	Display: None;
 }
+
+#Thread_Tab_Reload {
+	Display: Inline-Flex;
+	Align-Items: Center;
+}

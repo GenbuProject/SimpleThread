@@ -1,47 +1,53 @@
+class Util {
+	static refreshThreadList () {
+		base.Database.get(base.Database.ONCE, "threads", (res) => {
+			res = res.filter((thread, index, parent) => {
+				if (thread !== "!SYSTEM") {
+					thread.tid = index;
+					return true;
+				}
+			});
+	
+			for (let i = 0; i < res.length; i++) {
+				let thread = DOM("A", {
+					classes: ["mdl-list__item"],
+	
+					attributes: {
+						Href: "Viewer/?tid=" + res[i].tid
+					},
+	
+					children: [
+						DOM("Span", {
+							classes: ["mdl-list__item-primary-content"],
+	
+							children: [
+								DOM("I", {
+									classes: ["mdl-list__item-avatar", "material-icons"],
+									text: "person"
+								}),
+	
+								DOM("Span", {
+									text: res[i].title
+								})
+							]
+						})
+					]
+				});
+	
+				DOM("#Thread_Search").appendChild(thread);
+				if (base.user) if (res[i].jobs.Owner.hasOwnProperty(base.user.uid)) DOM("#Thread_Admin").appendChild(thread);
+			}
+		});
+	}
+}
+
 window.addEventListener("DOMContentLoaded", () => {
 	if (!base.user) {
 		DOM("$#Thread_Tab_Admin").setAttribute("Disabled", ""),
 		DOM("$#Thread_Admin").setAttribute("Disabled", "");
 	}
 
-	base.Database.get(base.Database.ONCE, "threads", (res) => {
-		res = res.filter((thread, index, parent) => {
-			if (thread !== "!SYSTEM") {
-				thread.tid = index;
-				return true;
-			}
-		});
-
-		for (let i = 0; i < res.length; i++) {
-			let thread = DOM("A", {
-				classes: ["mdl-list__item"],
-
-				attributes: {
-					Href: "Viewer/?tid=" + res[i].tid
-				},
-
-				children: [
-					DOM("Span", {
-						classes: ["mdl-list__item-primary-content"],
-
-						children: [
-							DOM("I", {
-								classes: ["mdl-list__item-avatar", "material-icons"],
-								text: "person"
-							}),
-
-							DOM("Span", {
-								text: res[i].title
-							})
-						]
-					})
-				]
-			});
-
-			DOM("#Thread_Search").appendChild(thread);
-			if (base.user) if (res[i].jobs.Owner.hasOwnProperty(base.user.uid)) DOM("#Thread_Admin").appendChild(thread);
-		}
-	});
+	Util.refreshThreadList();
 
 
 
@@ -67,6 +73,13 @@ window.addEventListener("DOMContentLoaded", () => {
 					thread.removeAttribute("Disabled");
 				}
 			});
+	});
+
+	DOM("#Thread_Tab_Reload").addEventListener("click", (event) => {
+		while (DOM("#Thread_Search").children.length > 1) DOM("#Thread_Search").children[1].remove();
+		while (DOM("#Thread_Admin").children.length > 1) DOM("#Thread_Admin").children[1].remove();
+
+		Util.refreshThreadList();
 	});
 
 

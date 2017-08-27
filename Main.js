@@ -74,6 +74,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 
+	DOM("$IFrame#Page").addEventListener("load", () => {
+		!DOM("#Drawer") || DOM("#Drawer").classList.remove("is-visible"),
+		!DOM("$Div.mdl-layout__obfuscator") || DOM("$Div.mdl-layout__obfuscator").classList.remove("is-visible");
+
+		DOM("#Screens_Loading").setAttribute("Disabled", "");
+	});
+
 	DOM("#Header_SignInOut").addEventListener("click", () => {
 		switch (DOM("#Header_SignInOut").textContent) {
 			case "Sign In":
@@ -88,9 +95,5 @@ window.addEventListener("DOMContentLoaded", () => {
 				alert("Got to Default.");
 				break;
 		}
-	});
-
-	DOM("$IFrame#Page").addEventListener("load", () => {
-		DOM("#Screens_Loading").setAttribute("Disabled", "");
 	});
 });
