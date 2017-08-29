@@ -17,7 +17,8 @@
 
 		<Script Src = "/SimpleThread/Core.js"></Script>
 		<Link Rel = "StyleSheet" Href = "/SimpleThread/Core.css" />
-
+		<Script Src = "/SimpleThread/includes/Components.js"></Script>
+		
 		<Script Src = "Thread.js"></Script>
 		<Link Rel = "StyleSheet" Href = "Thread.css" />
 
@@ -35,35 +36,35 @@
 	
 	<Body>
 		<Div Class = "mdl-grid">
-			<Div ID = "Thread" Class = "mdl-cell mdl-cell--2-offset mdl-cell--8-col mdl-shadow--4dp mdl-color--white mdl-color-text--grey-800 mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-				<Div ID = "Thread_Tab" Class = "mdl-tabs__tab-bar">
-					<A ID = "Thread_Tab_Search" Class = "mdl-tabs__tab is-active" Href = "#Thread_Search">スレッド検索</A>
-					<A ID = "Thread_Tab_Admin" Class = "mdl-tabs__tab" Href = "#Thread_Admin">管理中のスレッド</A>
+			<Div ID = "Threadlist" Class = "mdl-cell mdl-cell--2-offset mdl-cell--8-col mdl-shadow--4dp mdl-color--white mdl-color-text--grey-800 mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+				<Div ID = "Threadlist_Tab" Class = "mdl-tabs__tab-bar">
+					<A ID = "Threadlist_Tab_Search" Class = "mdl-tabs__tab is-active" Href = "#Threadlist_Search">スレッド検索</A>
+					<A ID = "Threadlist_Tab_Admin" Class = "mdl-tabs__tab" Href = "#Threadlist_Admin">管理中のスレッド</A>
 
-					<A ID = "Thread_Tab_Reload" Class = "mdl-tabs__tab">
+					<A ID = "Threadlist_Tab_Reload" Class = "mdl-tabs__tab">
 						<I Class = "material-icons">refresh</I>
 					</A>
 
-					<Div Class = "mdl-tooltip" For = "Thread_Tab_Reload">Refresh thread list</Div>
+					<Div Class = "mdl-tooltip" For = "Threadlist_Tab_Reload">Refresh thread list</Div>
 				</Div>
 
 
 
-				<Div ID = "Thread_Search" Class = "mdl-list mdl-tabs__panel is-active">
-					<Div ID = "Thread_Search_Searcher" Class = "mdl-list__item">
-						<Label ID = "Thread_Search_Searcher" Class = "Thread_Searcher_Label mdl-button mdl-js-button mdl-button--icon" For = "Thread_Search_Searcher_Container_Input">
+				<Div ID = "Threadlist_Search" Class = "mdl-list mdl-tabs__panel is-active">
+					<Div ID = "Threadlist_Search_Searcher" Class = "mdl-list__item">
+						<Label ID = "Threadlist_Search_Searcher" Class = "Threadlist_Searcher_Label mdl-button mdl-js-button mdl-button--icon" For = "Threadlist_Search_Searcher_Container_Input">
 							<I Class = "material-icons">search</I>
 						</Label>
 
-						<Div ID = "Thread_Search_Searcher_Container" Class = "mdl-textfield mdl-js-textfield">
-							<Input ID = "Thread_Search_Searcher_Container_Input" Class = "mdl-textfield__input" Type = "Search" />
-							<Label ID = "Thread_Search_Searcher_Container_Label" Class = "mdl-textfield__label" For = "Thread_Search_Searcher_Container_Input">Search...</Label>
+						<Div ID = "Threadlist_Search_Searcher_Container" Class = "mdl-textfield mdl-js-textfield">
+							<Input ID = "Threadlist_Search_Searcher_Container_Input" Class = "mdl-textfield__input" Type = "Search" />
+							<Label ID = "Threadlist_Search_Searcher_Container_Label" Class = "mdl-textfield__label" For = "Threadlist_Search_Searcher_Container_Input">Search...</Label>
 						</Div>
 					</Div>
 				</Div>
 
-				<Div ID = "Thread_Admin" Class = "mdl-list mdl-tabs__panel">
-					<A ID = "Thread_Admin_Create" Class = "mdl-list__item">
+				<Div ID = "Threadlist_Admin" Class = "mdl-list mdl-tabs__panel">
+					<A ID = "Threadlist_Admin_Create" Class = "mdl-list__item">
 						<Span Class = "mdl-list__item-primary-content">
 							<I Class = "mdl-list__item-avatar material-icons">add</I>
 							<Span>スレッドを作成</Span>

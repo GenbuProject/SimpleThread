@@ -9,33 +9,10 @@ class Util {
 			});
 	
 			for (let i = 0; i < res.length; i++) {
-				let thread = DOM("A", {
-					classes: ["mdl-list__item"],
+				let thread = new Components.Threadlist.Thread(res[i].tid, res[i].title);
 	
-					attributes: {
-						Href: "Viewer/?tid=" + res[i].tid
-					},
-	
-					children: [
-						DOM("Span", {
-							classes: ["mdl-list__item-primary-content"],
-	
-							children: [
-								DOM("I", {
-									classes: ["mdl-list__item-avatar", "material-icons"],
-									text: "person"
-								}),
-	
-								DOM("Span", {
-									text: res[i].title
-								})
-							]
-						})
-					]
-				});
-	
-				DOM("#Thread_Search").appendChild(thread);
-				if (base.user) if (res[i].jobs.Owner.hasOwnProperty(base.user.uid)) DOM("#Thread_Admin").appendChild(thread);
+				DOM("#Threadlist_Search").appendChild(thread);
+				if (base.user) if (res[i].jobs.Owner.hasOwnProperty(base.user.uid)) DOM("#Threadlist_Admin").appendChild(thread);
 			}
 		});
 	}
@@ -43,29 +20,29 @@ class Util {
 
 window.addEventListener("DOMContentLoaded", () => {
 	if (!base.user) {
-		DOM("$#Thread_Tab_Admin").setAttribute("Disabled", ""),
-		DOM("$#Thread_Admin").setAttribute("Disabled", "");
+		DOM("$#Threadlist_Tab_Admin").setAttribute("Disabled", ""),
+		DOM("$#Threadlist_Admin").setAttribute("Disabled", "");
 	}
 
 	Util.refreshThreadList();
 
 
 
-	DOM("@Div.Thread_Searcher").forEach((searcher) => {
+	DOM("@Div.Threadlist_Searcher").forEach((searcher) => {
 		let rnd = new DOM.Randomizer(DOM.Randomizer.TYPE.LEVEL3).generate(16);
 
-		searcher.id = "Thread_Searcher_" + rnd,
-		searcher.querySelector("Label.Thread_Searcher_Label").id = "Thread_Searcher_Label_" + rnd,
-		searcher.querySelector("Div.Thread_Searcher_Container").id = "Thread_Searcher_Container_" + rnd,
-		searcher.querySelector("Input.Thread_Searcher_Container_Input").id = "Thread_Searcher_Container_Input_" + rnd,
-		searcher.querySelector("Label.Thread_Searcher_Container_Label").id = "Thread_Searcher_Container_Label_" + rnd;
+		searcher.id = "Threadlist_Searcher_" + rnd,
+		searcher.querySelector("Label.Threadlist_Searcher_Label").id = "Threadlist_Searcher_Label_" + rnd,
+		searcher.querySelector("Div.Threadlist_Searcher_Container").id = "Threadlist_Searcher_Container_" + rnd,
+		searcher.querySelector("Input.Threadlist_Searcher_Container_Input").id = "Threadlist_Searcher_Container_Input_" + rnd,
+		searcher.querySelector("Label.Threadlist_Searcher_Container_Label").id = "Threadlist_Searcher_Container_Label_" + rnd;
 
-		searcher.querySelector("Label.Thread_Searcher_Label").htmlFor = searcher.querySelector("Input.Thread_Searcher_Container_Input").id,
-		searcher.querySelector("Label.Thread_Searcher_Container_Label").htmlFor = searcher.querySelector("Input.Thread_Searcher_Container_Input").id;
+		searcher.querySelector("Label.Threadlist_Searcher_Label").htmlFor = searcher.querySelector("Input.Threadlist_Searcher_Container_Input").id,
+		searcher.querySelector("Label.Threadlist_Searcher_Container_Label").htmlFor = searcher.querySelector("Input.Threadlist_Searcher_Container_Input").id;
 	});
 
-	DOM("#Thread_Search_Searcher_Container_Input").addEventListener("input", (event) => {
-		let list = Array.from(DOM("#Thread_Search").children).splice(1);
+	DOM("#Threadlist_Search_Searcher_Container_Input").addEventListener("input", (event) => {
+		let list = Array.from(DOM("#Threadlist_Search").children).splice(1);
 			list.forEach((thread) => {
 				if (thread.querySelector("Span:Not(.mdl-list__item-primary-content)").textContent.toLowerCase().indexOf(event.target.value.toLowerCase()) == -1) {
 					thread.setAttribute("Disabled", "");
@@ -75,9 +52,9 @@ window.addEventListener("DOMContentLoaded", () => {
 			});
 	});
 
-	DOM("#Thread_Tab_Reload").addEventListener("click", (event) => {
-		while (DOM("#Thread_Search").children.length > 1) DOM("#Thread_Search").children[1].remove();
-		while (DOM("#Thread_Admin").children.length > 1) DOM("#Thread_Admin").children[1].remove();
+	DOM("#Threadlist_Tab_Reload").addEventListener("click", (event) => {
+		while (DOM("#Threadlist_Search").children.length > 1) DOM("#Threadlist_Search").children[1].remove();
+		while (DOM("#Threadlist_Admin").children.length > 1) DOM("#Threadlist_Admin").children[1].remove();
 
 		Util.refreshThreadList();
 	});
@@ -86,7 +63,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	let doc = parent.document;
 
-	DOM("#Thread_Admin_Create").addEventListener("click", () => {
+	DOM("#Threadlist_Admin_Create").addEventListener("click", () => {
 		doc.querySelector("#Dialogs_Thread_InfoInputer").showModal();
 	});
 });
