@@ -1,21 +1,21 @@
-#Thread_Search_Searcher_Container {
+#Threadlist_Tab_Reload {
+	Display: Inline-Flex;
+	Align-Items: Center;
+}
+
+#Threadlist_Search_Searcher_Container {
 	Width: 100%;
 }
 
-#Thread > Div[Disabled] {
+#Threadlist > Div[Disabled] {
 	Display: None;
 }
 
-#Thread A {
+#Threadlist A {
 	Text-Decoration: None;
 	Cursor: Pointer;
 }
 
-#Thread A[Disabled] {
+#Threadlist A[Disabled] {
 	Display: None;
-}
-
-#Thread_Tab_Reload {
-	Display: Inline-Flex;
-	Align-Items: Center;
 }
