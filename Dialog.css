@@ -42,11 +42,11 @@ Dialog[ID^="Dialogs"] Div.mdl-textfield {
 	White-Space: Pre-Wrap;
 }
 
-#Dialogs_Profile_InfoViewer_Content_Info_Link {
+#Dialogs_Profile_InfoViewer_Content_Info_Links {
 	Padding: 1em 0 0;
 }
 
-#Dialogs_Profile_InfoViewer_Content_Info_Link Img {
+Img[UUID="Dialogs_Profile_InfoViewer_Content_Info_Links_Link_Icon"] {
 	Width: 1em;
 }
 

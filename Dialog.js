@@ -38,15 +38,17 @@ window.addEventListener("DOMContentLoaded", () => {
 
 		onChange: (watcher) => {
 			base.Database.get(base.Database.ONCE, `users/${watcher.newValue}`, (res) => {
-				console.log(res);
-
 				DOM("#Dialogs_Profile_InfoViewer_Content_Photo").dataset.uid = watcher.newValue,
 				DOM("#Dialogs_Profile_InfoViewer_Content_Info_Name").textContent = res.userName,
 				DOM("#Dialogs_Profile_InfoViewer_Content_Info_Detail").textContent = res.detail;
 
+				while (DOM("#Dialogs_Profile_InfoViewer_Content_Info_Links").childNodes.length > 0) DOM("#Dialogs_Profile_InfoViewer_Content_Info_Links").childNodes[0].remove();
+				
 				if (res.links) {
 					for (let i = 0; i < res.links.length; i++) {
-						
+						let link = new Components.Dialogs.Profile.InfoViewer.Links.Link(res.links[i].name, res.links[i].url);
+
+						DOM("#Dialogs_Profile_InfoViewer_Content_Info_Links").appendChild(link);
 					}
 				}
 			});
