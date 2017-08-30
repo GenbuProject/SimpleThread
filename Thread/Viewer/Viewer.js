@@ -42,24 +42,30 @@ window.addEventListener("DOMContentLoaded", () => {
 	});
 
 	base.Database.get(base.Database.INTERVAL, "threads/" + querys.TID + "/data", (res) => {
-		res = res.filter((post, index, parent) => {
+		resForIncrease = res, resForDecrease = res;
+
+		resForIncrease = resForIncrease.filter((post, index, parent) => {
 			if (post) {
 				post.pid = index;
 				return true;
 			}
 		});
 
-		if (DOM("#Thread").children.length < res.length) {
-			for (let i = DOM("#Thread").children.length; i < res.length; i++) {
+		resForDecrease.forEach((post, index, parent) => {
+			post.pid = index;
+		});
+		
+		if (DOM("#Thread").children.length < resForIncrease.length) {
+			for (let i = DOM("#Thread").children.length; i < resForIncrease.length; i++) {
 				let rnd = new DOM.Randomizer(DOM.Randomizer.TYPE.LEVEL3).generate(16);
 
-				let post = new Components.Thread.Post(res[i].pid, res[i].uid, "", res[i].content, new Date(res[i].createdAt).toLocaleString(), rnd);
+				let post = new Components.Thread.Post(resForIncrease[i].pid, resForIncrease[i].uid, "", resForIncrease[i].content, new Date(resForIncrease[i].createdAt).toLocaleString(), rnd);
 					post.querySelector('A[UUID="Thread_Post_Header_ActorPhoto"]').addEventListener("click", () => {
-						doc.querySelector("#Dialogs_Profile_InfoViewer_Content_UID").value = res[i].uid;
+						doc.querySelector("#Dialogs_Profile_InfoViewer_Content_UID").value = resForIncrease[i].uid;
 						doc.querySelector("#Dialogs_Profile_InfoViewer").showModal();
 					});
 					
-				base.Database.get(base.Database.ONCE, "users/" + res[i].uid, (userRes) => {
+				base.Database.get(base.Database.ONCE, "users/" + resForIncrease[i].uid, (userRes) => {
 					componentHandler.upgradeElement(post.querySelector(`Label#Thread_Post_Actions_Plus_${rnd}`));
 					post.querySelector('Span[UUID="Thread_Post_Header_Actor"]').textContent = userRes.userName;
 				});
@@ -71,7 +77,9 @@ window.addEventListener("DOMContentLoaded", () => {
 				DOM("#Thread").appendChild(post);
 			}
 		} else {
-			
+			DOM('@Div[UUID="Thread_Post"]').forEach((post) => {
+				if (!resForDecrease[post.dataset.pid]) post.remove();
+			});
 		}
 	});
 

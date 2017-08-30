@@ -3,11 +3,14 @@ let doc = parent.document;
 class Components {
 	static get componentsDoc () {
 		let doc = DOM("Body");
+
+		try {
 			doc.innerHTML = DOM.xhr({
 				type: "GET",
 				url: "/SimpleThread/includes/Components.html",
 				doesSync: false
 			}).response;
+		} catch (error) {}
 
 		return doc;
 	}
@@ -115,7 +118,7 @@ class Components {
 						componentWrapper.appendChild(component);
 
 						componentWrapper.firstElementChild.outerHTML = componentWrapper.firstElementChild.outerHTML.replaces([
-							[/\${pid}/g, pid || ""],
+							[/\${pid}/g, pid + "" || ""],
 							[/\${uid}/g, uid || ""],
 							[/\${userName}/g, userName || ""],
 							[/\${content}/g, content || ""],
