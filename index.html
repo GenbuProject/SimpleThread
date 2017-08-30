@@ -128,14 +128,14 @@
 
 						<Div ID = "Dialogs_Profile_DeleteConfirmer_Content_Email" Class = "mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 							<Input ID = "Dialogs_Profile_DeleteConfirmer_Content_Email_Input" Class = "mdl-textfield__input" Type = "Email" Value = "" Required = "Required" />
-							<Label ID = "Dialogs_Profile_DeleteConfirmer_Content_Email_Label" Class = "mdl-textfield__label" For = "Dialogs_Profile_DeleteConfirmer_Content_Email_Input">メールアドレス...</Label>
+							<Label ID = "Dialogs_Profile_DeleteConfirmer_Content_Email_Label" Class = "mdl-textfield__label" For = "Dialogs_Profile_DeleteConfirmer_Content_Email_Input">メールアドレス...*</Label>
 
 							<Span Class = "mdl-textfield__error">無効なメールアドレスです</Span>
 						</Div>
 					</Div>
 
 					<Div ID = "Dialogs_Profile_DeleteConfirmer_Btns" Class = "mdl-dialog__actions">
-						<Button ID = "Dialogs_Profile_DeleteConfirmer_Btns_Yes" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Type = "Button">はい</Button>
+						<Button ID = "Dialogs_Profile_DeleteConfirmer_Btns_Yes" Class = "mdl-button mdl-js-button mdl-button--disabled mdl-js-ripple-effect" Type = "Button">はい</Button>
 						<Button ID = "Dialogs_Profile_DeleteConfirmer_Btns_No" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Type = "Button" Data-Action = "Dialog_Close">いいえ</Button>
 					</Div>
 				</Dialog>
@@ -170,22 +170,22 @@
 					<Div ID = "Dialogs_Thread_InfoInputer_Content" Class = "mdl-dialog__content">
 						<Div ID = "Dialogs_Thread_InfoInputer_Content_Name" Class = "mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 							<Input ID = "Dialogs_Thread_InfoInputer_Content_Name_Input" Class = "mdl-textfield__input" Type = "Text" Value = "" Required = "Required" />
-							<Label ID = "Dialogs_Thread_InfoInputer_Content_Name_Label" Class = "mdl-textfield__label" For = "Dialogs_Thread_InfoInputer_Content_Name_Input">スレッド名...</Label>
+							<Label ID = "Dialogs_Thread_InfoInputer_Content_Name_Label" Class = "mdl-textfield__label" For = "Dialogs_Thread_InfoInputer_Content_Name_Input">スレッド名...*</Label>
 						</Div>
 
 						<Div ID = "Dialogs_Thread_InfoInputer_Content_Overview" Class = "mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 							<Input ID = "Dialogs_Thread_InfoInputer_Content_Overview_Input" Class = "mdl-textfield__input" Type = "Text" Value = "" Required = "Required" />
-							<Label ID = "Dialogs_Thread_InfoInputer_Content_Overview_Label" Class = "mdl-textfield__label" For = "Dialogs_Thread_InfoInputer_Content_Overview_Input">概要...</Label>
+							<Label ID = "Dialogs_Thread_InfoInputer_Content_Overview_Label" Class = "mdl-textfield__label" For = "Dialogs_Thread_InfoInputer_Content_Overview_Input">概要...*</Label>
 						</Div>
 
 						<Div ID = "Dialogs_Thread_InfoInputer_Content_Detail" Class = "mdl-textfield mdl-js-textfield">
 							<Textarea ID = "Dialogs_Thread_InfoInputer_Content_Detail_Input" Class = "mdl-textfield__input" Rows = "10" MaxLength = "500"></Textarea>
-							<Label Class = "mdl-textfield__label" For = "Dialogs_Thread_InfoInputer_Content_Detail_Input">詳細...(任意)</Label>
+							<Label Class = "mdl-textfield__label" For = "Dialogs_Thread_InfoInputer_Content_Detail_Input">詳細...</Label>
 						</Div>
 					</Div>
 
 					<Div ID = "Dialogs_Thread_InfoInputer_Btns" Class = "mdl-dialog__actions">
-						<Button ID = "Dialogs_Thread_InfoInputer_Btns_OK" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Type = "Button" Data-Action = "Dialog_Submit">作成</Button>
+						<Button ID = "Dialogs_Thread_InfoInputer_Btns_OK" Class = "mdl-button mdl-js-button mdl-button--disabled mdl-js-ripple-effect" Type = "Button" Data-Action = "Dialog_Submit">作成</Button>
 						<Button ID = "Dialogs_Thread_InfoInputer_Btns_Cancel" Class = "mdl-button mdl-js-button mdl-js-ripple-effect" Type = "Button" Data-Action = "Dialog_Close">キャンセル</Button>
 					</Div>
 				</Dialog>
@@ -193,7 +193,7 @@
 				<Dialog ID = "Dialogs_Thread_Poster" Class = "mdl-dialog">
 					<Div ID = "Dialogs_Thread_Poster_Content" Class = "mdl-dialog__content">
 						<Div ID = "Dialogs_Thread_Poster_Content_Value" Class = "mdl-textfield mdl-js-textfield">
-							<Textarea ID = "Dialogs_Thread_Poster_Content_Value_Input" Class = "mdl-textfield__input" Rows = "15" MaxLength = "500"></Textarea>
+							<Textarea ID = "Dialogs_Thread_Poster_Content_Value_Input" Class = "mdl-textfield__input" Rows = "15" MaxLength = "500" Required = "Required"></Textarea>
 							<Label Class = "mdl-textfield__label" For = "Dialogs_Thread_Poster_Content_Value_Input">最近の出来事を共有してみましょう</Label>
 						</Div>
 
