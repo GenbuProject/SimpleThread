@@ -1,0 +1,70 @@
+<!DocType HTML>
+
+<HTML>
+	<Head>
+		<Meta Charset = "UTF-8" />
+		<Title>Simple Thread == スレッドビューア</Title>
+
+		<Script Src = "https://genbuproject.github.io/Programs/DOM Extender/DOM Extender v3.3.js"></Script>
+		<Script Src = "https://genbuproject.github.io/Programs/DOM Extender/includes/mobile-detect.min.js"></Script>
+		<Script Src = "https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sunburst"></Script>
+
+		<Link Rel = "StyleSheet" Href = "https://fonts.googleapis.com/icon?family=Material+Icons" />
+		<Link Rel = "StyleSheet" Href = "https://code.getmdl.io/1.3.0/material.teal-red.min.css" />
+		<Script Src = "https://code.getmdl.io/1.3.0/material.min.js" Defer = "Defer"></Script>
+		<Script Src = "https://genbuproject.github.io/Programs/MDL Extender/MDL Extender.js"></Script>
+		<Link Rel = "StyleSheet" Href = "https://genbuproject.github.io/Programs/MDL Extender/MDL Extender.css" />
+
+		<Script Src = "https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></Script>
+		<Script Src = "https://genbuproject.github.io/Programs/FirebasePlus/FirebasePlus v1.1.js"></Script>
+		
+		<Script Src = "https://caligatio.github.io/jsSHA/sha.js"></Script>
+		<Script Src = "/SimpleThread/assets/classes/Encrypter.js"></Script>
+		
+		<Script Src = "/SimpleThread/assets/includes/Core.js"></Script>
+		<Link Rel = "StyleSheet" Href = "/SimpleThread/assets/includes/Core.css" />
+		<Script Src = "/SimpleThread/assets/includes/Component.js"></Script>
+
+		<Script Src = "Viewer.js"></Script>
+		<Link Rel = "StyleSheet" Href = "Viewer.css" />
+
+		<Style UUID = "Thread_Post_Header_ActorPhoto--Manager"></Style>
+
+		<Script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			
+			ga('create', 'UA-88656260-1', 'auto');
+			ga('require', 'linkid', 'linkid.js');
+			ga('send', 'pageview');
+		</Script>
+	</Head>
+	
+	<Body Style = 'Background: URL("/SimpleThread/assets/images/Back.jpg")'>
+		<Div Class = "mdl-grid">
+			<Main ID = "Thread">
+				
+			</Main>
+		</Div>
+
+		<Div ID = "FlowPanel_Btns">
+			<Div Class = "FlowPanel_Btns_Row">
+				<Button ID = "FlowPanel_Btns_CreatePost" Class = "mdl-button mdl-js-button mdl-button--fab mdl-button--primary mdl-js-ripple-effect mdl-shadow--8dp">
+					<I Class = "material-icons">edit</I>
+				</Button>
+
+				<Button ID = "FlowPanel_Btns_Scroller" Class = "mdl-button mdl-js-button mdl-button--fab mdl-button--primary mdl-js-ripple-effect mdl-shadow--8dp">
+					<I Class = "material-icons">vertical_align_bottom</I>
+				</Button>
+			</Div>
+
+			<Div Class = "FlowPanel_Btns_Row">
+				<Button ID = "FlowPanel_Btns_ShowThreadInfo" Class = "mdl-button mdl-js-button mdl-button--fab mdl-button--primary mdl-js-ripple-effect mdl-shadow--8dp">
+					<I Class = "material-icons">build</I>
+				</Button>
+			</Div>
+		</Div>
+	</Body>
+</HTML>

@@ -1,0 +1,21 @@
+#Threadlist_Tab_Reload {
+	Display: Inline-Flex;
+	Align-Items: Center;
+}
+
+#Threadlist_Search_Searcher_Container {
+	Width: 100%;
+}
+
+#Threadlist > Div[Disabled] {
+	Display: None;
+}
+
+#Threadlist A {
+	Text-Decoration: None;
+	Cursor: Pointer;
+}
+
+#Threadlist A[Disabled] {
+	Display: None;
+}

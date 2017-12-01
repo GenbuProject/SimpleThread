@@ -1,0 +1,76 @@
+Div[Data-Component="Thread_Post"], Div[Data-Component="Thread_Post-Mine"] {
+	Width: 100%;
+	Min-Height: Auto;
+
+	Margin: 5vh 0;
+}
+
+Div[Data-Component="Thread_Post_Header"] > * {
+	Display: Flex;
+	Flex-Direction: Row;
+	Align-Items: Center;
+
+	Font-Size: Medium;
+}
+
+A[Data-Component="Thread_Post_Header_ActorPhoto"] {
+	Background: Transparent Center / Cover;
+}
+
+A[Data-Component="Thread_Post_Header_ActorPhoto"][Disabled] {
+	Display: None;
+}
+
+Span[Data-Component="Thread_Post_Header_Actor"] {
+	Align-Self: Auto;
+
+	Margin-Left: 0.5em;
+}
+
+Span[Data-Component="Thread_Post_Header_CreatedAt"] {
+	Color: #BDBDBD;
+	Font-Size: 80%;
+}
+
+Div[Data-Component="Thread_Post_Content"] {
+	White-Space: Pre-Wrap;
+}
+
+
+
+#FlowPanel_Btns {
+	Position: Fixed;
+	Right: 0;
+	Bottom: 0;
+
+	Display: Flex;
+	Flex-Direction: Row-Reverse;
+
+	Padding: 5vh 4vw;
+	Z-Index: 100;
+}
+
+#FlowPanel_Btns *[Disabled] {
+	Display: None;
+}
+
+#FlowPanel_Btns > Div {
+	Margin-Left: 2.5vw;
+}
+
+#FlowPanel_Btns > Div:Last-Child {
+	Margin-Left: 0;
+}
+
+.FlowPanel_Btns_Row {
+	Display: Flex;
+	Flex-Direction: Column;
+}
+
+.FlowPanel_Btns_Row > * {
+	Margin-Bottom: 2.5vw;
+}
+
+.FlowPanel_Btns_Row > *:Last-Child {
+	Margin-Bottom: 0;
+}

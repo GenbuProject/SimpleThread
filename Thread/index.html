@@ -1,0 +1,79 @@
+<!DocType HTML>
+
+<HTML>
+	<Head>
+		<Meta Charset = "UTF-8" />
+		<Title>Simple Thread == スレッド一覧</Title>
+
+		<Script Src = "https://genbuproject.github.io/Programs/DOM Extender/DOM Extender v3.3.js"></Script>
+		<Script Src = "https://genbuproject.github.io/Programs/DOM Extender/includes/mobile-detect.min.js"></Script>
+
+		<Link Rel = "StyleSheet" Href = "https://fonts.googleapis.com/icon?family=Material+Icons" />
+		<Link Rel = "StyleSheet" Href = "https://code.getmdl.io/1.3.0/material.teal-red.min.css" />
+		<Script Src = "https://code.getmdl.io/1.3.0/material.min.js" Defer = "Defer"></Script>
+		<Script Src = "https://genbuproject.github.io/Programs/MDL Extender/MDL Extender.js"></Script>
+		<Link Rel = "StyleSheet" Href = "https://genbuproject.github.io/Programs/MDL Extender/MDL Extender.css" />
+
+		<Script Src = "https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></Script>
+		<Script Src = "https://genbuproject.github.io/Programs/FirebasePlus/FirebasePlus v1.1.js"></Script>
+
+		<Script Src = "/SimpleThread/assets/includes/Core.js"></Script>
+		<Link Rel = "StyleSheet" Href = "/SimpleThread/assets/includes/Core.css" />
+		<Script Src = "/SimpleThread/assets/includes/Component.js"></Script>
+		
+		<Script Src = "Thread.js"></Script>
+		<Link Rel = "StyleSheet" Href = "Thread.css" />
+
+		<Script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			
+			ga('create', 'UA-88656260-1', 'auto');
+			ga('require', 'linkid', 'linkid.js');
+			ga('send', 'pageview');
+		</Script>
+	</Head>
+	
+	<Body>
+		<Div Class = "mdl-grid">
+			<Main ID = "Threadlist" Class = "mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+				<Div ID = "Threadlist_Tab" Class = "mdl-tabs__tab-bar">
+					<A ID = "Threadlist_Tab_Search" Class = "mdl-tabs__tab is-active" Href = "#Threadlist_Search" Data-Locales = "thread.searchPanel">スレッド検索</A>
+					<A ID = "Threadlist_Tab_Admin" Class = "mdl-tabs__tab" Href = "#Threadlist_Admin" Data-Locales = "thread.adminPanel">管理中のスレッド</A>
+
+					<A ID = "Threadlist_Tab_Reload" Class = "mdl-tabs__tab">
+						<I Class = "material-icons">refresh</I>
+					</A>
+
+					<Div Class = "mdl-tooltip" For = "Threadlist_Tab_Reload" Data-Locales = "thread.refresh-hint">Refresh threadlist</Div>
+				</Div>
+
+
+
+				<Div ID = "Threadlist_Search" Class = "mdl-list mdl-tabs__panel is-active">
+					<Div ID = "Threadlist_Search_Searcher" Class = "mdl-list__item">
+						<Label ID = "Threadlist_Search_Searcher-Icon" Class = "Threadlist_Searcher_Label mdl-button mdl-js-button mdl-button--icon" For = "Threadlist_Search_Searcher_Container-Input">
+							<I Class = "material-icons">search</I>
+						</Label>
+
+						<Div ID = "Threadlist_Search_Searcher_Container" Class = "mdl-textfield mdl-js-textfield">
+							<Input ID = "Threadlist_Search_Searcher_Container-Input" Class = "mdl-textfield__input" Type = "Search" />
+							<Label ID = "Threadlist_Search_Searcher_Container-Label" Class = "mdl-textfield__label" For = "Threadlist_Search_Searcher_Container-Input" Data-Locales = "thread.searcher">Search...</Label>
+						</Div>
+					</Div>
+				</Div>
+
+				<Div ID = "Threadlist_Admin" Class = "mdl-list mdl-tabs__panel">
+					<A ID = "Threadlist_Admin_Create" Class = "mdl-list__item">
+						<Span Class = "mdl-list__item-primary-content">
+							<I Class = "mdl-list__item-avatar material-icons">add</I>
+							<Span Data-Locales = "thread.create">スレッドを作成</Span>
+						</Span>
+					</A>
+				</Div>
+			</Main>
+		</Div>
+	</Body>
+</HTML>
