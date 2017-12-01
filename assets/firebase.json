@@ -1,0 +1,8 @@
+{
+	"apiKey": "AIzaSyA62uPkN6WNV41oWWzOdiITMbBF9RDYOhM",
+	"authDomain": "simple-thread.firebaseapp.com",
+	"databaseURL": "https://simple-thread.firebaseio.com",
+	"projectId": "simple-thread",
+	"storageBucket": "simple-thread.appspot.com",
+	"messagingSenderId": 646527306803
+}
