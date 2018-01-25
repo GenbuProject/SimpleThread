@@ -6,6 +6,10 @@ Dialog[ID^="Dialogs"] Div.mdl-textfield {
 	Width: 100%;
 }
 
+Dialog[ID^="Dialogs"] Button.mdl-button--disabled {
+	Pointer-Events: None;
+}
+
 *.mdl-switch__child-hide {
 	Display: None;
 }
@@ -54,6 +58,12 @@ Img[Data-Component="Dialogs_Profile_InfoViewer_Content_Info_Links_Link_Icon"] {
 
 
 
+#Dialogs_Thread_InfoInputter_Btns > Button[Disabled] {
+	Display: None;
+}
+
+
+
 #Dialogs_Thread_InfoViewer_Content_Overview {
 	Padding: 1em 0 4em 0;
 }
@@ -65,6 +75,38 @@ Img[Data-Component="Dialogs_Profile_InfoViewer_Content_Info_Links_Link_Icon"] {
 }
 
 
+
+#Dialogs_Thread_Poster_Header {
+	Display: Flex;
+
+	Padding-Bottom: 0;
+}
+
+#Dialogs_Thread_Poster_Header > * {
+	Display: Flex;
+	Flex-Direction: Row;
+	Align-Items: Center;
+
+	Font-Size: Medium;
+}
+
+#Dialogs_Thread_Poster_Header > Div.mdl-menu__container {
+	Width: 1000px;
+}
+
+#Dialogs_Thread_Poster_Header_Actor {
+	Align-Self: Auto;
+
+	Margin-Left: 0.5em;
+}
+
+#Dialogs_Thread_Poster_Menu > Li > * {
+	Vertical-Align: Middle;
+}
+
+#Dialogs_Thread_Poster_Content {
+	Padding-Top: 0;
+}
 
 #Dialogs_Thread_Poster_Content_Text-Input {
 	Resize: None;

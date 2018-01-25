@@ -8,7 +8,7 @@ class DBLoader extends FirebasePlus {
 
 
 	delete () {
-		this.reauth([""]).then(() => {
+		this.reauth().then(() => {
 			this.Database.get(this.Database.ONCE, "threads/", res => {
 				res.forEach((thread, threadIndex) => {
 					if (thread.data) {
@@ -25,6 +25,11 @@ class DBLoader extends FirebasePlus {
 					}
 				});
 			});
+
+			this.accessToken = "",
+			this.idToken = "",
+			this.signInType = "",
+			this.signInScope = [];
 
 			this.Database.delete("users/" + this.user.uid);
 			this.user.delete();

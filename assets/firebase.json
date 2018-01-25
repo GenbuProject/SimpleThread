@@ -4,5 +4,13 @@
 	"databaseURL": "https://simple-thread.firebaseio.com",
 	"projectId": "simple-thread",
 	"storageBucket": "simple-thread.appspot.com",
-	"messagingSenderId": 646527306803
+	"messagingSenderId": 646527306803,
+
+	"client_id": "646527306803-1ecjnmee3pddu6tkakrevs7lkka1daql.apps.googleusercontent.com",
+	
+	"scope": [
+		"https://www.googleapis.com/auth/plus.login",
+		"https://www.googleapis.com/auth/drive.readonly",
+		"https://www.googleapis.com/auth/photos"
+	]
 }

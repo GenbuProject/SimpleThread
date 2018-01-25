@@ -9,14 +9,71 @@ class Util {
 			});
 	
 			for (let i = 0; i < res.length; i++) {
-				let thread = new Component.Threadlist.Thread(res[i].tid, res[i].title, res[i].password);
+				let thread;
 				
+				if (!base.user) {
+					thread = new Component.Threadlist.Thread(res[i].tid, res[i].title, res[i].overview, false, res[i].password);
+				} else {
+					thread = new Component.Threadlist.Thread(res[i].tid, res[i].title, res[i].overview, res[i].jobs.Owner.hasOwnProperty(base.user.uid), res[i].password);
+				}
+
 				new DOM("#Threadlist_Search").appendChild(thread);
-				if (base.user) if (res[i].jobs.Owner.hasOwnProperty(base.user.uid)) new DOM("#Threadlist_Admin").appendChild(thread);
+
+				if (base.user && res[i].jobs.Owner.hasOwnProperty(base.user.uid)) {
+					new DOM("#Threadlist_Admin").appendChild(thread);
+
+					thread.querySelector(`*[Data-Component="${Component.Threadlist.Thread.UUIDS.ADMIN.MENU.EDIT}"]`).addEventListener("click", () => {
+						doc.querySelector("#Dialogs_Thread_InfoInputter_TID").value = res[i].tid;
+
+						base.Database.get(base.Database.ONCE, `threads/${res[i].tid}/`, res => {
+							doc.querySelector("#Dialogs_Thread_InfoInputter_Content_Name-Input").value = res.title,
+							doc.querySelector("#Dialogs_Thread_InfoInputter_Content_Overview-Input").value = res.overview,
+							doc.querySelector("#Dialogs_Thread_InfoInputter_Content_Detail-Input").value = res.detail,
+							doc.querySelector("#Dialogs_Thread_InfoInputter_Content_Password-Input").value = res.password ? "        " : "";
+
+							doc.querySelector("#Dialogs_Thread_InfoInputter_Content_Name").classList.remove("is-invalid"),
+							doc.querySelector("#Dialogs_Thread_InfoInputter_Content_Name").classList.add("is-dirty"),
+							doc.querySelector("#Dialogs_Thread_InfoInputter_Content_Overview").classList.remove("is-invalid"),
+							doc.querySelector("#Dialogs_Thread_InfoInputter_Content_Overview").classList.add("is-dirty"),
+							doc.querySelector("#Dialogs_Thread_InfoInputter_Content_Detail").classList.remove("is-invalid"),
+							doc.querySelector("#Dialogs_Thread_InfoInputter_Content_Detail").classList.add("is-dirty"),
+							doc.querySelector("#Dialogs_Thread_InfoInputter_Content_Password").classList.remove("is-invalid"),
+							doc.querySelector("#Dialogs_Thread_InfoInputter_Content_Password").classList.add("is-dirty");
+
+							if (res.password) {
+								doc.querySelector("#Dialogs_Thread_InfoInputter_Content_Secured").classList.add("is-checked"),
+								doc.querySelector("#Dialogs_Thread_InfoInputter_Content_Secured-Input").checked = true,
+								doc.querySelector("#Dialogs_Thread_InfoInputter_Content_Password").classList.remove("mdl-switch__child-hide");
+							} else {
+								doc.querySelector("#Dialogs_Thread_InfoInputter_Content_Secured").classList.remove("is-checked"),
+								doc.querySelector("#Dialogs_Thread_InfoInputter_Content_Secured-Input").checked = false,
+								doc.querySelector("#Dialogs_Thread_InfoInputter_Content_Password").classList.add("mdl-switch__child-hide");
+							}
+						});
+					});
+
+					thread.querySelector(`*[Data-Component="${Component.Threadlist.Thread.UUIDS.ADMIN.MENU.DELETE}"]`).addEventListener("click", () => {
+						doc.querySelector("#Dialogs_Thread_DeleteConfirmer_TID").value = res[i].tid;
+					});
+				}
 			}
+
+			componentHandler.upgradeDom();
 		});
 	}
 }
+
+window.addEventListener("message", event => {
+	switch (event.data.code) {
+		case "Code-Refresh":
+			while (new DOM("#Threadlist_Search").children.length > 1) new DOM("#Threadlist_Search").children[1].remove();
+			while (new DOM("#Threadlist_Admin").children.length > 1) new DOM("#Threadlist_Admin").children[1].remove();
+
+			Util.refreshThreadList();
+			
+			break;
+	}
+});
 
 window.addEventListener("DOMContentLoaded", () => {
 	if (!base.user) {
@@ -46,11 +103,12 @@ window.addEventListener("DOMContentLoaded", () => {
 		Util.refreshThreadList();
 	});
 
-
-
-	let doc = parent.document;
+	
 
 	new DOM("#Threadlist_Admin_Create").addEventListener("click", () => {
-		doc.querySelector("#Dialogs_Thread_InfoInputer").showModal();
+		doc.querySelector("#Dialogs_Thread_InfoInputter_Btns_Create").removeAttribute("Disabled"),
+		doc.querySelector("#Dialogs_Thread_InfoInputter_Btns_Edit").setAttribute("Disabled", "");
+
+		doc.querySelector("#Dialogs_Thread_InfoInputter").showModal();
 	});
 });

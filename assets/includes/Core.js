@@ -1,6 +1,7 @@
 window.base = parent.base || {};
 window.terminal = parent.terminal || {};
 window.locales = parent.locales;
+window.doc = parent.document;
 
 
 
@@ -8,7 +9,7 @@ try {
 	terminal.postMessage({ code: "Code-Connected" });
 	terminal.postMessage({ code: "Code-RequestHasLogined" });
 } catch (error) {
-	location.href = "/SimpleThread/Error/403.10/";
+	location.href = "/SimpleThread-Debug/Error/403.10/";
 }
 
 window.addEventListener("DOMContentLoaded", () => {

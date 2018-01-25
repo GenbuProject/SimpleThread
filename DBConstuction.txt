@@ -1,0 +1,54 @@
+Root
+> threads
+	> 0: "!SYSTEM"
+
+	> 1
+		> title: String
+		> overview: String
+		> detail: String
+		> jobs
+			> Owner: Object //UIDをキーとして格納
+				> xxxxxxxx: ""
+				> ...
+
+		> createdAt: DateString
+
+		> data
+			> 0
+				> uid: "!SYSTEM"
+				> content: $self.title
+				> createdAt: $self.createdAt
+
+			> 1
+				> uid: UID
+				> content: String
+				> createdAt: DateString
+
+			> ...
+
+		> password: "" || HashString
+
+	> ...
+
+> users
+	> !SYSTEM: ""
+
+	> !SYSTEM_INFO
+		> gplusName: ""
+		> gplusPhoto: ""
+		> userName: ""
+		> detail: ""
+
+	> xxxxxxxx
+		> gplusName: String
+		> gplusPhoto: URLString
+		> userName: String
+		> detail: String
+		> links: Array<Object>
+			> [0]
+				> name: String
+				> url: URLString
+
+			> ...
+			
+	> ...
