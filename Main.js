@@ -1,14 +1,57 @@
 window.base = new DBLoader("assets/firebase.json", (user) => {
+	window.gapi.load("picker", () => {
+		window.Picker = class Picker extends google.picker.PickerBuilder {
+			static get PhotoPicker () {
+				return class PhotoPicker extends window.Picker {
+					constructor (onSelect = (data) => {}) {
+						super(onSelect);
+						super.addView(google.picker.ViewId.PHOTOS);
+					}
+				}
+			}
+
+			static get FilePicker () {
+				return class FilePicker extends window.Picker {
+					constructor (onSelect = (data) => {}) {
+						super(onSelect);
+						super.addView(google.picker.ViewId.DOCS);
+					}
+				}
+			}
+
+
+
+			constructor (onSelect = (data) => {}) {
+				super();
+
+				super.setOAuthToken(base.accessToken),
+				super.setDeveloperKey(base.option.apiKey),
+				super.setCallback(onSelect);
+			}
+
+			show () {
+				let picker = this.picker = this.build();
+					picker.setVisible(true);
+			}
+
+			dismiss () {
+				this.picker.setVisible(false);
+			}
+		}
+	});
+
+
+	
 	if (user) {
 		new DOM("#Header_SignInOut").dataset.locales = "main.signOut";
 
-		base.Database.getInfo(base.Database.ONCE, "users/" + user.uid, (res) => {
+		base.Database.getInfo(base.Database.ONCE, `users/${user.uid}`, (res) => {
 			new DOM('@A[UUID="ProfilePhoto-Btn"]').forEach((btn) => {
-				btn.dataset.uid = base.user.uid;
+				btn.dataset.uid = user.uid;
 			});
 
 			if (!res.exists()) {
-				base.Database.set("users/" + user.uid, {
+				base.Database.set(`users/${user.uid}`, {
 					gplusName: user.providerData[0].displayName,
 					gplusPhoto: user.photoURL,
 					userName: user.providerData[0].displayName,
@@ -18,11 +61,16 @@ window.base = new DBLoader("assets/firebase.json", (user) => {
 
 				new DOM("#Dialogs_Account_CreateNotify").showModal();
 			} else {
-				base.Database.update("users/" + user.uid, {
+				base.Database.update(`users/${user.uid}`, {
 					gplusName: user.providerData[0].displayName,
 					gplusPhoto: user.photoURL
 				});
 			}
+		});
+
+		base.Database.get(base.Database.ONCE, `users/${base.user.uid}`, (res) => {
+			new DOM("#Dialogs_Thread_Poster_Header_ActorPhoto").dataset.uid = base.user.uid;
+			new DOM("#Dialogs_Thread_Poster_Header_Actor").textContent = res.userName;
 		});
 	} else {
 		window.addEventListener("DOMContentLoaded", () => {
@@ -47,7 +95,7 @@ window.base = new DBLoader("assets/firebase.json", (user) => {
 	let querys = location.querySort();
 
 	if (querys.TID) {
-		new DOM("$IFrame.mdl-layout__content").src = "Thread/Viewer/?tid=" + querys.TID;
+		new DOM("$IFrame.mdl-layout__content").src = `Thread/Viewer/?tid=${querys.TID}`;
 	}
 });
 
@@ -94,7 +142,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	new DOM("#Header_SignInOut").addEventListener("click", () => {
 		switch (new DOM("#Header_SignInOut").dataset.locales) {
 			case "main.signIn":
-				base.signInWithRedirect(base.SIGNINTYPE.GOOGLE, ["https://www.googleapis.com/auth/plus.login"]);
+				base.signInWithRedirect(base.SIGNINTYPE.GOOGLE, base.option.scope);
 				break;
 				
 			case "main.signOut":

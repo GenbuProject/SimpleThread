@@ -11,7 +11,7 @@ A:Not([Href]) {
 }
 
 *[Data-Locales] {
-	White-Space: Pre-Line;
+	White-Space: Pre-Wrap;
 }
 
 

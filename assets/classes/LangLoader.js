@@ -27,9 +27,9 @@ class LangLoader extends JSONLoader {
 		localizedElems.forEach((elem) => {
 			if (this.currentData[elem.dataset.locales]) {
 				if (Array.isArray(this.currentData[elem.dataset.locales])) {
-					elem.textContent = this.currentData[elem.dataset.locales].join("\n");
+					elem.firstChild.data = this.currentData[elem.dataset.locales].join("\n");
 				} else {
-					elem.textContent = this.currentData[elem.dataset.locales];
+					elem.firstChild.data = this.currentData[elem.dataset.locales];
 				}
 			}
 		});
@@ -44,9 +44,9 @@ class LangLoader extends JSONLoader {
 	applyToElement (elem) {
 		if (this.currentData[elem.dataset.locales]) {
 			if (Array.isArray(this.currentData[elem.dataset.locales])) {
-				elem.textContent = this.currentData[elem.dataset.locales].join("\n");
+				elem.firstChild.data = this.currentData[elem.dataset.locales].join("\n");
 			} else {
-				elem.textContent = this.currentData[elem.dataset.locales];
+				elem.firstChild.data = this.currentData[elem.dataset.locales];
 			}
 		}
 	}

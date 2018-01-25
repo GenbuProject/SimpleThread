@@ -1,6 +1,4 @@
 window.addEventListener("DOMContentLoaded", () => {
-	let doc = parent.document;
-
 	if (doc.querySelector("#Dialogs_Thread_PasswordConfirmer_Link").value) {
 		doc.querySelector("#Dialogs_Thread_PasswordConfirmer").showModal();
 	} else {

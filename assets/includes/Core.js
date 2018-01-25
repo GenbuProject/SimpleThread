@@ -1,6 +1,7 @@
 window.base = parent.base || {};
 window.terminal = parent.terminal || {};
 window.locales = parent.locales;
+window.doc = parent.document;
 
 
 

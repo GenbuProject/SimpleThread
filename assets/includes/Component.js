@@ -96,14 +96,40 @@ class Component {
 				static get UUIDS () {
 					return {
 						ROOT: 'Threadlist_Thread',
+
+						ADMIN: {
+							ROOT: 'Threadlist_Thread-Admin',
+
+							MENU: {
+								ROOT: 'Threadlist_Thread-Admin_Menu',
+
+								EDIT: 'Threadlist_Thread-Admin_Menu_MenuItem-Edit',
+								DELETE: 'Threadlist_Thread-Admin_Menu_MenuItem-Delete'
+							}
+						},
+
 						SECURED: 'Threadlist_Thread-Secured'
 					}
 				}
 
 
 
-				constructor (tid = "", title = "", isSecured = false) {
-					return new Component(!isSecured ? Thread.UUIDS.ROOT : Thread.UUIDS.SECURED, tid, title);
+				constructor (tid = "", title = "", overview = "", isAdmin = false, isSecured = false) {
+					let self = new Component(isAdmin ? Thread.UUIDS.ADMIN.ROOT : isSecured ? Thread.UUIDS.SECURED : Thread.UUIDS.ROOT, tid, title, overview, new DOM.Randomizer().generate(16));
+						if (self.querySelector(`*[Data-Component="${Thread.UUIDS.ADMIN.MENU.ROOT}"]`)) {
+							self.querySelector(`*[Data-Component="${Thread.UUIDS.ADMIN.MENU.EDIT}"]`).addEventListener("click", () => {
+								parent.document.querySelector("#Dialogs_Thread_InfoInputter_Btns_Edit").removeAttribute("Disabled"),
+								parent.document.querySelector("#Dialogs_Thread_InfoInputter_Btns_Create").setAttribute("Disabled", "");
+
+								parent.document.querySelector("#Dialogs_Thread_InfoInputter").showModal();
+							});
+
+							self.querySelector(`*[Data-Component="${Thread.UUIDS.ADMIN.MENU.DELETE}"]`).addEventListener("click", () => {
+								parent.document.querySelector("#Dialogs_Thread_DeleteConfirmer").showModal();
+							});
+						}
+
+					return self;
 				}
 			}
 		}
@@ -117,6 +143,14 @@ class Component {
 						ROOT: 'Thread_Post',
 						MINE: 'Thread_Post-Mine',
 
+						HEADER: {
+							ROOT: 'Thread_Post_Header',
+
+							PHOTO: 'Thread_Post_Header_ActorPhoto',
+							NAME: 'Thread_Post_Header_Actor',
+							CREATED: 'Thread_Post_Header_CreatedAt'
+						},
+
 						MENU: {
 							ROOT: 'Thread_Post_Header_Menu',
 							DELETE: 'Thread_Post_Header_Menu_MenuItem-Delete'
@@ -126,10 +160,22 @@ class Component {
 
 
 
-				constructor (pid = "", uid = "", userName = "", content = "", createdAt = new Date().toLocaleString(), isMine = false) {
+				constructor (uid = "", tid = "", pid = "", userName = "", content = "", createdAt = new Date().toLocaleString(), isMine = false) {
 					let self = new Component(!isMine ? Post.UUIDS.ROOT : Post.UUIDS.MINE, pid, uid, userName, content, createdAt, new DOM.Randomizer().generate(16));
-						self.pid = pid,
-						self.uid = uid;
+						self.uid = uid,
+						self.tid = tid,
+						self.pid = pid;
+
+						self.querySelector(`*[Data-Component="${Post.UUIDS.HEADER.PHOTO}"]`).addEventListener("click", () => {
+							parent.document.querySelector("#Dialogs_Profile_InfoViewer_UID").value = self.uid;
+							parent.document.querySelector("#Dialogs_Profile_InfoViewer").showModal();
+						});
+
+						if (self.querySelector(`*[Data-Component="${Post.UUIDS.MENU.ROOT}"]`)) {
+							self.querySelector(`*[Data-Component="${Post.UUIDS.MENU.DELETE}"]`).addEventListener("click", () => {
+								base.Database.delete(`threads/${self.tid}/data/${self.pid}/`);
+							});
+						}
 
 					return self;
 				}

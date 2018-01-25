@@ -11,11 +11,20 @@
 	Display: None;
 }
 
-#Threadlist A {
+#Threadlist *[Data-Component^="Threadlist_Thread"] {
 	Text-Decoration: None;
 	Cursor: Pointer;
 }
 
-#Threadlist A[Disabled] {
+#Threadlist *[Data-Component^="Threadlist_Thread"][Disabled] {
 	Display: None;
+}
+
+#Threadlist *[Data-Component^="Threadlist_Thread"] A {
+	Color: Inherit;
+	Font-Weight: Inherit;
+}
+
+#Threadlist *[Data-Component="Threadlist_Thread-Admin"] {
+	Position: Relative;
 }

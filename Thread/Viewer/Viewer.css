@@ -17,6 +17,11 @@ A[Data-Component="Thread_Post_Header_ActorPhoto"] {
 	Background: Transparent Center / Cover;
 }
 
+A[Data-Component="Thread_Post_Header_ActorPhoto"][Data-UID^="!SYSTEM"] + Span[Data-Component="Thread_Post_Header_Actor"] {
+	Color: OrangeRed;
+	Text-Decoration: Underline;
+}
+
 A[Data-Component="Thread_Post_Header_ActorPhoto"][Disabled] {
 	Display: None;
 }
@@ -34,6 +39,10 @@ Span[Data-Component="Thread_Post_Header_CreatedAt"] {
 
 Div[Data-Component="Thread_Post_Content"] {
 	White-Space: Pre-Wrap;
+}
+
+Div[Data-Component="Thread_Post_Content"] * {
+	Max-Width: 100%;
 }
 
 
