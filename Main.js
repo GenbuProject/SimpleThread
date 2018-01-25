@@ -136,7 +136,7 @@ window.addEventListener("DOMContentLoaded", () => {
 			!new DOM("$Div.mdl-layout__obfuscator") || new DOM("$Div.mdl-layout__obfuscator").classList.remove("is-visible");
 		} catch (error) {}
 
-		if (new DOM("$IFrame#Page").contentWindow.location.pathname != "/SimpleThread-Debug/Thread/Viewer/") locales.applyToElement(new DOM("#Header_Title"));
+		if (new DOM("$IFrame#Page").contentWindow.location.pathname != "/SimpleThread/Thread/Viewer/") locales.applyToElement(new DOM("#Header_Title"));
 	});
 
 	new DOM("#Header_SignInOut").addEventListener("click", () => {

@@ -1,3 +1,3 @@
 setTimeout(() => {
-	window.open("/SimpleThread-Debug/", "_parent");
+	window.open("/SimpleThread/", "_parent");
 }, 5000);

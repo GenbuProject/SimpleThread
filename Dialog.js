@@ -228,7 +228,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	});
 
 	new DOM("#Dialogs_Thread_PasswordConfirmer_Btns_Cancel").addEventListener("click", (event) => {
-		new DOM("$IFrame.mdl-layout__content").src = "/SimpleThread-Debug/Thread/";
+		new DOM("$IFrame.mdl-layout__content").src = "/SimpleThread/Thread/";
 	});
 
 

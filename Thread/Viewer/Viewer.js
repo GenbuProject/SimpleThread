@@ -2,7 +2,7 @@ const TID = location.querySort().TID;
 
 window.addEventListener("DOMContentLoaded", () => {
 	if (!TID) {
-		location.href = "/SimpleThread-Debug/Error/406/";
+		location.href = "/SimpleThread/Error/406/";
 	}
 
 	if (!base.user) {

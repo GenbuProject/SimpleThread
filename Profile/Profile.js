@@ -5,7 +5,7 @@ terminal.addEventListener("message", (event) => {
 
 	switch (message.code) {
 		case "Code-SendHasLogined":
-			if (!message.data) location.href = "/SimpleThread-Debug/Error/401/";
+			if (!message.data) location.href = "/SimpleThread/Error/401/";
 			break;
 	}
 });

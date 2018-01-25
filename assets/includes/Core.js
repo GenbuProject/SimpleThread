@@ -9,7 +9,7 @@ try {
 	terminal.postMessage({ code: "Code-Connected" });
 	terminal.postMessage({ code: "Code-RequestHasLogined" });
 } catch (error) {
-	location.href = "/SimpleThread-Debug/Error/403.10/";
+	location.href = "/SimpleThread/Error/403.10/";
 }
 
 window.addEventListener("DOMContentLoaded", () => {
