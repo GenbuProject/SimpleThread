@@ -23,7 +23,7 @@
 
 			<Div ID = "Profile-Info">
 				<Div Class = "mdc-text-field">
-					<Input ID = "Profile-Info-Name" Type = "Text" Class = "mdc-text-field__input">
+					<Input ID = "Profile-Info-Name" Class = "mdc-text-field__input" Type = "Text" />
 					<Label Class = "mdc-text-field__label" For = "Profile-Info-Name" Data-Locales = "profile.name">ユーザー名...</Label>
 					<Div Class = "mdc-text-field__bottom-line"></Div>
 				</Div>
@@ -34,9 +34,50 @@
 				</Div>
 
 				<Div>
-					
+					<Button ID = "Profile-Save" Class = "mdc-button mdc-button--raised" Data-Locales = "profile.save">変更を保存</Button>
+					<Button ID = "Profile-Delete" Class = "mdc-button mdc-button--raised mdc-theme--secondary-bg" Data-Locales = "profile.delete">アカウントを削除</Button>
 				</Div>
 			</Div>
 		</Main>
+
+		<Aside ID = "ChangeNotify" Class = "mdc-dialog" Role = "AlertDialog">
+			<Div Class = "mdc-dialog__surface">
+				<Section Class = "mdc-dialog__body" Data-Locales = "profile.changeNotify">
+					プロフィールが変更されました。
+				</Section>
+
+				<Footer Class = "mdc-dialog__footer">
+					<Button Class = "mdc-button mdc-dialog__action mdc-dialog__footer__button mdc-dialog__footer__button--accept" Data-Locales = "common.dialog_close">閉じる</Button>
+				</Footer>
+			</Div>
+
+			<Div Class = "mdc-dialog__backdrop"></Div>
+		</Aside>
+
+		<Aside ID = "DeleteConfirmer" Class = "mdc-dialog" Role = "AlertDialog">
+			<Div Class = "mdc-dialog__surface">
+				<Section Class = "mdc-dialog__body">
+					<Div Data-Locales = "profile.deleteConfirmer">
+						本当にアカウントを削除しますか？
+						処理を続行するにはメールアドレスを入力してください。
+					</Div>
+
+					<Div Class = "mdc-text-field">
+						<Input ID = "DeleteConfirmer-Email" Class = "mdc-text-field__input" Type = "Email" Required = "Required" Aria-Controls = "DeleteConfirmer-Email--Valid" />
+						<Label Class = "mdc-text-field__label" Data-Locales = "profile.deleteConfirmer.email">メールアドレス...</Label>
+						<Div Class = "mdc-text-field__bottom-line"></Div>
+					</Div>
+
+					<P ID = "DeleteConfirmer-Email--Valid" Class = "mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" Data-Locales = "profile.deleteConfirmer.email-error">無効なメールアドレスです</P>
+				</Section>
+
+				<Footer Class = "mdc-dialog__footer">
+					<Button Class = "mdc-button mdc-dialog__action mdc-dialog__footer__button mdc-dialog__footer__button--accept" Data-Locales = "common.dialog_yes">はい</Button>
+					<Button Class = "mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel" Data-Locales = "common.dialog_no">いいえ</Button>
+				</Footer>
+			</Div>
+
+			<Div Class = "mdc-dialog__backdrop"></Div>
+		</Aside>
 	</Body>
 </HTML>

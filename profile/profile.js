@@ -12,4 +12,17 @@ terminal.addEventListener("message", event => {
 
 window.addEventListener("DOMContentLoaded", () => {
 	new DOM("@.mdc-text-field").forEach(textField => new mdc.textField.MDCTextField(textField));
+
+	new DOM("#Profile-Save").addEventListener("click", () => {
+		base.Database.update("users/" + base.user.uid, {
+			userName: new DOM("#Profile-Info-Name").value,
+			detail: new DOM("#Profile-Info-Detail").value
+		});
+
+		new mdc.dialog.MDCDialog(new DOM("#ChangeNotify")).show();
+	});
+
+	new DOM("#Profile-Delete").addEventListener("click", () => {
+		new mdc.dialog.MDCDialog(new DOM("#DeleteConfirmer")).show();
+	})
 });
