@@ -13,4 +13,5 @@ class JSONLoader extends FileLoader {
 	}
 }
 
+terminal.postMessage({ code: "LoaderLoaded" });
 terminal.postMessage({ code: "ScriptLoaded" });

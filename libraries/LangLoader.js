@@ -12,7 +12,7 @@ class LangLoader extends JSONLoader {
 	 * @param {String} lang
 	 */
 	load (lang) {
-		return super.load(`/SimpleThread/assets/locales/${lang}.json`);
+		return super.load(`/SimpleThread/locales/${lang}.json`);
 	}
 
 	/**
@@ -52,4 +52,5 @@ class LangLoader extends JSONLoader {
 	}
 }
 
+terminal.postMessage({ code: "LoaderLoaded" });
 terminal.postMessage({ code: "ScriptLoaded" });

@@ -5,17 +5,17 @@
 		<Nav Class = "mdc-temporary-drawer__content mdc-list">
 			<A Class = "mdc-list-item" Href = "/SimpleThread/">
 				<I Class = "material-icons mdc-list-item__start-detail" Aria-Hidden = "true">home</I>
-				Top
+				<Span Data-Locales = "common.top">Top</Span>
 			</A>
 
-			<A Class = "mdc-list-item" Href = "/SimpleThread/">
+			<A Class = "mdc-list-item" Href = "/SimpleThread/thread/">
 				<I Class = "material-icons mdc-list-item__start-detail" Aria-Hidden = "true">subject</I>
-				Thread
+				<Span Data-Locales = "common.thread">Thread</Span>
 			</A>
 
 			<A Class = "mdc-list-item" Href = "/SimpleThread/info/">
 				<I Class = "material-icons mdc-list-item__start-detail" Aria-Hidden = "true">info</I>
-				Server Info
+				<Span Data-Locales = "common.info">Info</Span>
 			</A>
 		</Nav>
 	</Nav>
@@ -25,16 +25,20 @@
 	<Link Rel = "StyleSheet" Href = "/SimpleThread/libraries/Material Icons/material-icons.css" />
 	<Link Rel = "StyleSheet" Href = "/SimpleThread/libraries/Material Icons Extended/material-icons-extended.css" />
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<Script Src = "https://www.googletagmanager.com/gtag/js?id=UA-111257667-2" Async = "Async"></Script>
-
 
 
 	<Header Data-Component = "Frame-Content_Toolbar" Class = "mdc-toolbar mdc-toolbar--fixed mdc-toolbar--waterfall mdc-elevation--z4">
 		<Div Class = "mdc-toolbar__row">
 			<Section Class = "mdc-toolbar__section mdc-toolbar__section--align-start">
 				<A Data-Component = "Frame-Content_Toolbar_DrawerBtn" Class = "mdc-toolbar__menu-icon material-icons" Href = "javascript:void(0)">menu</A>
-				<Span Data-Component = "Frame-Content_Toolbar_Title" Class = "mdc-toolbar__title">どっかのプログラなーいのサイト。</Span>
+				<Span Data-Component = "Frame-Content_Toolbar_Title" Class = "mdc-toolbar__title"></Span>
+			</Section>
+
+			<Section Class = "mdc-toolbar__section mdc-toolbar__section--align-end mdc-toolbar__section--shrink-to-fit">
+				<Nav Class = "mdc-tab-bar">
+					<A Class = "mdc-tab" Href = "/SimpleThread/" Data-Locales = "common.top">Top</A>
+					<A Class = "mdc-tab" Href = "#" Data-Locales = "common.signIn">Sign In</A>
+				</Nav>
 			</Section>
 		</Div>
 	</Header>

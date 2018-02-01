@@ -39,4 +39,5 @@ class DBLoader extends FirebasePlus {
 	}
 }
 
+terminal.postMessage({ code: "LoaderLoaded" });
 terminal.postMessage({ code: "ScriptLoaded" });
