@@ -51,3 +51,5 @@ class LangLoader extends JSONLoader {
 		}
 	}
 }
+
+terminal.postMessage({ code: "ScriptLoaded" });

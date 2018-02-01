@@ -22,3 +22,5 @@ class FileLoader {
 		return this.currentData;
 	}
 }
+
+terminal.postMessage({ code: "ScriptLoaded" });

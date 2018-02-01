@@ -255,3 +255,5 @@ class FirebasePlus {
 		location.reload();
 	}
 }
+
+terminal.postMessage({ code: "ScriptLoaded" });
