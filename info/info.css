@@ -1,0 +1,14 @@
+#Info-Logo {
+	Width: 100%;
+	Margin-Bottom: 2em;
+}
+
+#Info > Table {
+	Width: 100%;
+	Border: Thin Solid LightGray;
+}
+
+#Info > Table Th, #Info > Table Td {
+	Padding: 1em;
+	Text-Align: Left;
+}
