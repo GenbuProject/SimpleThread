@@ -1,0 +1,17 @@
+#Profile {
+	Display: Flex;
+	Flex-Direction: Row;
+	Align-Items: Flex-Start;
+}
+
+#Profile-Photo {
+	Width: 20%;
+	Margin-Right: 5%;
+}
+
+#Profile-Info {
+	Display: Flex;
+	Flex-Direction: Column;
+
+	Flex: 1;
+}
