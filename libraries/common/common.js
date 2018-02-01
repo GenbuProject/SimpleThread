@@ -15,6 +15,6 @@ window.addEventListener("DOMContentLoaded", () => {
 	window.mdc.autoInit();
 
 	new DOM("@Main").forEach(elem => {
-		["mdc-typography", "mdc-toolbar-fixed-adjust"].forEach(className => elem.classList.add(className));
+		["mdc-typography", "mdc-typography--body2", "mdc-elevation--z5", "mdc-toolbar-fixed-adjust"].forEach(className => elem.classList.add(className));
 	});
 });

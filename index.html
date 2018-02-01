@@ -14,21 +14,19 @@
 
 		<Script Src = "/SimpleThread/libraries/DOM Extender v3.4.js"></Script>
 		<Script Src = "/SimpleThread/libraries/common/common.js"></Script>
+		<Link Rel = "StyleSheet" Href = "/SimpleThread/libraries/common/common.css" />
 
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<Script Src = "https://www.googletagmanager.com/gtag/js?id=UA-88656260-2" Async = "Async"></Script>
-		<Script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag () { dataLayer.push(arguments) }
-			gtag('js', new Date());
-
-			gtag('config', 'UA-88656260-2');
-		</Script>
+		<Link Rel = "StyleSheet" Href = "main.css" />
 	</Head>
 	
 	<Body>
-		<Main>
+		<Main ID = "Top">
+			<Img ID = "Top-Logo" Src = "/SimpleThread/images/Logo.png" />
 			
+			<P ID = "Top-Introduce" Data-Locales = "top.introduce">
+				Simple Threadへようこそ！
+				当サービスでは "Be Simple, Be Free" をモットーに、他サービスと比べ自由に話せるスレ板を提供しますΣd(´・ω・｀)
+			</P>
 		</Main>
 	</Body>
 </HTML>
