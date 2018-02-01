@@ -38,3 +38,5 @@ class DBLoader extends FirebasePlus {
 		});
 	}
 }
+
+terminal.postMessage({ code: "ScriptLoaded" });
