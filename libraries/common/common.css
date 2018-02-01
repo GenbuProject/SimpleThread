@@ -29,6 +29,8 @@ Body {
 	Background: URL("/SimpleThread/images/Back.jpg");
 }
 
+
+
 Div[Data-Component="Frame-Content"] {
 	Display: Flex;
 	Flex-Direction: Column;
@@ -40,8 +42,8 @@ Main {
 
 	Flex: 1;
 	
-	Margin: 4vmin 17.5%;
-	Padding: 1rem;
+	Margin: 0 17.5%;
+	Padding: 4vmin;
 	Background-Color: White;
 }
 
@@ -57,4 +59,20 @@ A:Not([Href]) {
 
 *[Data-Locales] {
 	White-Space: Pre-Line;
+}
+
+.mdc-typography--headline {
+	Border-Bottom: Thin Solid LightSeagreen;
+}
+
+.mdc-typography--headline::Before {
+	Content: "";
+	
+	Display: Inline-Block;
+	
+	Margin-Right: 0.5em;
+	Border: 1rem Solid Transparent;
+	Border-Color: Transparent LightSeagreen LightSeagreen Transparent;
+	
+	Vertical-Align: Bottom;
 }

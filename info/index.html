@@ -3,19 +3,55 @@
 <HTML>
 	<Head>
 		<Meta Charset = "UTF-8" />
+		<Meta Name = "Viewport" Content = "Width=Device-Width, Initial-Scale=1, User-Scalable=No" />
 		<Title>サーバー情報 | Simple Thread</Title>
-		
+
 		<Script Src = "/SimpleThread/libraries/material-components-web.min.js"></Script>
 		<Link Rel = "StyleSheet" Href = "/SimpleThread/libraries/material-components-web.min.css" />
 
 		<Script Src = "/SimpleThread/libraries/DOM Extender v3.4.js"></Script>
 		<Script Src = "/SimpleThread/libraries/common/common.js"></Script>
 		<Link Rel = "StyleSheet" Href = "/SimpleThread/libraries/common/common.css" />
+
+		<Link Rel = "StyleSheet" Href = "info.css" />
 	</Head>
 	
 	<Body>
-		<Main>
-			
+		<Main ID = "Info">
+			<Img ID = "Info-Logo" Src = "/SimpleThread/images/Logo.png" />
+
+			<H2 Class = "mdc-typography--headline" Data-Locales = "common.serverInfo">Server Info</H2>
+
+			<Table Class = "mdc-elevation--z3">
+				<THead>
+					<Tr>
+						<Th Data-Locales = "info.name">項目</Th>
+						<Th Data-Locales = "info.value">値</Th>
+					</Tr>
+				</THead>
+
+				<TBody>
+					<Tr>
+						<Td Data-Locales = "info.name.serviceName">サービス名称</Td>
+						<Td Data-Locales = "common.title">Simple Thread</Td>
+					</Tr>
+
+					<Tr>
+						<Td Data-Locales = "info.name.users">ユーザー数</Td>
+						<Td ID = "Info-Users">0</Td>
+					</Tr>
+
+					<Tr>
+						<Td Data-Locales = "info.name.threads">スレッド数</Td>
+						<Td ID = "Info-Threads">0</Td>
+					</Tr>
+
+					<Tr>
+						<Td Data-Locales = "info.name.lastUpdated">最終更新日</Td>
+						<Td>2018/02/01</Td>
+					</Tr>
+				</TBody>
+			</Table>
 		</Main>
 	</Body>
 </HTML>
