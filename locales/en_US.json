@@ -1,5 +1,11 @@
 {
 	"common.title": "Simple Thread",
+	"common.top": "Top",
+	"common.thread": "Thread",
+	"common.info": "Info",
+	"common.signIn": "Sign In",
+	"common.signOut": "Sign Out",
+	"common.profileBtn-hint": "See your profile",
 	"common.dialog_yes": "Yes",
 	"common.dialog_no": "No",
 	"common.dialog_close": "Accept",
@@ -36,13 +42,6 @@
 	"dialog.thread.poster.linkEmbedder-error": "Invalid URL",
 	"dialog.thread.poster.linkEmbedder.add": "Add",
 
-	"main.top": "Top",
-	"main.thread": "Thread",
-	"main.serverInfo": "Server Info",
-	"main.signIn": "Sign In",
-	"main.signOut": "Sign Out",
-	"main.profileBtn-hint": "See your profile",
-
 	"top.introduce": ["Welcome to Simple Thread!", "Our goal is 'Be Simple, Be Free', and we supply thread-service you could talk freely :D"],
 
 	"thread.searchPanel": "Searching threads",
@@ -53,12 +52,12 @@
 
 	"post.delete": "Delete",
 
-	"serverInfo.name": "Name",
-	"serverInfo.value": "Value",
-	"serverInfo.name.serviceName": "Service Name",
-	"serverInfo.name.users": "Users",
-	"serverInfo.name.threads": "Threads",
-	"serverInfo.name.lastUpdated": "Last Updated",
+	"info.name": "Name",
+	"info.value": "Value",
+	"info.name.serviceName": "Service Name",
+	"info.name.users": "Users",
+	"info.name.threads": "Threads",
+	"info.name.lastUpdated": "Last Updated",
 
 	"profile.name": "Name...",
 	"profile.detail": "Detail...",

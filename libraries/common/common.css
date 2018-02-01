@@ -18,6 +18,8 @@
 	--mdc-theme-text-secondary-on-secondary: #b2ebf2;
 	--mdc-theme-text-secondary-on-secondary-light: #b2ebf2;
 	--mdc-theme-text-secondary-on-secondary-dark: #18ffff;
+
+	Line-Height: 1.75;
 }
 
 HTML, Body {

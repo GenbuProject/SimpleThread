@@ -1,3 +1,4 @@
+let loadedLoaders = 0;
 let loadedScripts = 0;
 
 self.addEventListener("message", event => {
@@ -6,6 +7,12 @@ self.addEventListener("message", event => {
 		msg.data = !(msg.data != false && !msg.data) ? msg.data : "";
 
 	switch (msg.code) {
+		case "LoaderLoaded":
+			loadedLoaders++;
+
+			if (loadedLoaders >= 4) self.postMessage({ code: "LocalizeInitialized" });
+			break;
+
 		case "ScriptLoaded":
 			loadedScripts++;
 
