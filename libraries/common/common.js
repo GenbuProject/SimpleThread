@@ -65,6 +65,33 @@ window.addEventListener("DOMContentLoaded", () => {
 		["mdc-typography", "mdc-typography--body1", "mdc-elevation--z5", "mdc-toolbar-fixed-adjust"].forEach(className => elem.classList.add(className));
 	});
 
+	new DOM('@Aside.mdc-dialog').forEach(dialog => {
+		if (dialog.querySelector('Button.mdc-dialog__action')) {
+			dialog.addEventListener("keydown", (event) => {
+				if (event.ctrlKey && event.keyCode == 13) dialog.querySelector('Button.mdc-dialog__action').click();
+			});
+		}
+
+		dialog.querySelectorAll('*[Required]').forEach(input => {
+			input.addEventListener("input", () => {
+				let result = true;
+
+				dialog.querySelectorAll('*[Required]').forEach(requiredField => {
+					if (requiredField.value.replace(/\s/g, "").length == 0) {
+						result = false;
+						return;
+					}
+				});
+
+				if (result) {
+					dialog.querySelector('Button.mdc-dialog__action').removeAttribute("disabled");
+				} else {
+					dialog.querySelector('Button.mdc-dialog__action').setAttribute("disabled", "");
+				}
+			});
+		});
+	})
+
 
 
 	terminal.addEventListener("message", event => {

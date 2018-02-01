@@ -13,10 +13,6 @@
 
 	"dialog.account.createNotify": ["Your account has been created.", "Welcome to Simple Thread!!"],
 	"dialog.account.deleteNotify": "Your account has been deleted.",
-	"dialog.profile.changeNotify": "Your profile has been changed.",
-	"dialog.profile.deleteConfirmer": ["Are you sure of deleting your account?", "You must enter your e-mail to delete account."],
-	"dialog.profile.deleteConfirmer.email": "E-mail...*",
-	"dialog.profile.deleteConfirmer.email-error": "Invalid E-mail",
 	"dialog.profile.infoViewer.link": "Link",
 	"dialog.thread.editNotify": "Info of the thread has been changed.",
 	"dialog.thread.deleteNotify": "The thread has been deleted.",
@@ -65,5 +61,9 @@
 	"profile.url.title": "Title",
 	"profile.url.value": "URL",
 	"profile.save": "Save the changes",
-	"profile.delete": "Delete your account"
+	"profile.delete": "Delete your account",
+	"profile.changeNotify": "Your profile has been changed.",
+	"profile.deleteConfirmer": ["Are you sure of deleting your account?", "You must enter your e-mail to delete account."],
+	"profile.deleteConfirmer.email": "E-mail...",
+	"profile.deleteConfirmer.email-error": "Invalid E-mail"
 }

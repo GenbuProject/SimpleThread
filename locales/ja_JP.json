@@ -13,10 +13,6 @@
 
 	"dialog.account.createNotify": ["アカウントを作成しました。", "Simple Threadにようこそ！！"],
 	"dialog.account.deleteNotify": "アカウントを削除しました。",
-	"dialog.profile.changeNotify": "プロフィールが変更されました。",
-	"dialog.profile.deleteConfirmer": ["本当にアカウントを削除しますか？", "処理を続行するにはメールアドレスを入力してください。"],
-	"dialog.profile.deleteConfirmer.email": "メールアドレス...*",
-	"dialog.profile.deleteConfirmer.email-error": "無効なメールアドレスです",
 	"dialog.profile.infoViewer.link": "リンク",
 	"dialog.thread.editNotify": "スレッド情報が編集されました。",
 	"dialog.thread.deleteNotify": "スレッドが削除されました。",
@@ -65,5 +61,9 @@
 	"profile.url.title": "タイトル",
 	"profile.url.value": "URL",
 	"profile.save": "変更を保存",
-	"profile.delete": "アカウントを削除"
+	"profile.delete": "アカウントを削除",
+	"profile.changeNotify": "プロフィールが変更されました。",
+	"profile.deleteConfirmer": ["本当にアカウントを削除しますか？", "処理を続行するにはメールアドレスを入力してください。"],
+	"profile.deleteConfirmer.email": "メールアドレス...",
+	"profile.deleteConfirmer.email-error": "無効なメールアドレスです"
 }

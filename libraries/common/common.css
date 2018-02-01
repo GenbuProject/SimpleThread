@@ -103,3 +103,7 @@ A.profilePhoto.mdc-tab {
 .mdc-text-field > Textarea {
 	Resize: None;
 }
+
+.mdc-dialog .mdc-dialog__body > .mdc-text-field {
+	Width: 100%;
+}
