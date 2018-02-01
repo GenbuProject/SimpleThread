@@ -1,4 +1,4 @@
-<Aside Data-Component = "Frame-Drawer" Class = "mdc-temporary-drawer">
+<Aside ID = "Frame-Drawer" Class = "mdc-temporary-drawer">
 	<Nav Class = "mdc-temporary-drawer__drawer">
 		<Div Class = "mdc-temporary-drawer__toolbar-spacer"></Div>
 
@@ -21,23 +21,25 @@
 	</Nav>
 </Aside>
 
-<Div Data-Component = "Frame-Content">
+<Div ID = "Frame-Content">
 	<Link Rel = "StyleSheet" Href = "/SimpleThread/libraries/Material Icons/material-icons.css" />
 	<Link Rel = "StyleSheet" Href = "/SimpleThread/libraries/Material Icons Extended/material-icons-extended.css" />
 
 
 
-	<Header Data-Component = "Frame-Content_Toolbar" Class = "mdc-toolbar mdc-toolbar--fixed mdc-toolbar--waterfall mdc-elevation--z4">
+	<Header ID = "Frame-Content-Toolbar" Class = "mdc-toolbar mdc-toolbar--fixed mdc-toolbar--waterfall mdc-elevation--z4">
 		<Div Class = "mdc-toolbar__row">
 			<Section Class = "mdc-toolbar__section mdc-toolbar__section--align-start">
-				<A Data-Component = "Frame-Content_Toolbar_DrawerBtn" Class = "mdc-toolbar__menu-icon material-icons" Href = "javascript:void(0)">menu</A>
-				<Span Data-Component = "Frame-Content_Toolbar_Title" Class = "mdc-toolbar__title"></Span>
+				<A ID = "Frame-Content-Toolbar-DrawerBtn" Class = "mdc-toolbar__menu-icon material-icons" Href = "javascript:void(0)">menu</A>
+				<Span ID = "Frame-Content-Toolbar-Title" Class = "mdc-toolbar__title"></Span>
 			</Section>
 
 			<Section Class = "mdc-toolbar__section mdc-toolbar__section--align-end mdc-toolbar__section--shrink-to-fit">
 				<Nav Class = "mdc-tab-bar">
 					<A Class = "mdc-tab" Href = "/SimpleThread/" Data-Locales = "common.top">Top</A>
-					<A Class = "mdc-tab" Href = "#" Data-Locales = "common.signIn">Sign In</A>
+					<A ID = "Frame-Content-Toolbar-SignInOut" Class = "mdc-tab" Href = "#" Data-Locales = "common.signIn">Sign In</A>
+
+					<A Class = "mdc-tab profilePhoto disabled" Href = "/SimpleThread/profile/"></A>
 				</Nav>
 			</Section>
 		</Div>

@@ -8,14 +8,30 @@ window.addEventListener("DOMContentLoaded", () => {
 	let menuContainer = new DOM.ComponentLoader("/SimpleThread/libraries/common/").doc.querySelector("Body");
 		menuContainer.childNodes.forEach(component => document.body.appendChild(component));
 
-		new DOM('$*[Data-Component="Frame-Content_Toolbar_Title"]').textContent = new DOM("$Title").textContent;
+		new DOM("#Frame-Content-Toolbar-Title").textContent = new DOM("$Title").textContent;
 
-		new DOM('$*[Data-Component="Frame-Content"]').appendChild(new DOM("$Main"));
-		new mdc.toolbar.MDCToolbar(new DOM('$Header[Data-Component="Frame-Content_Toolbar"]'));
+		new DOM("#Frame-Content").appendChild(new DOM("$Main"));
+		new mdc.toolbar.MDCToolbar(new DOM("#Frame-Content-Toolbar"));
 
-		new DOM('$*[Data-Component="Frame-Content_Toolbar_DrawerBtn"]').addEventListener("click", () => {
-			let drawer = new mdc.drawer.MDCTemporaryDrawer(new DOM('$*[Data-Component="Frame-Drawer"]'));
+		new DOM("#Frame-Content-Toolbar-DrawerBtn").addEventListener("click", () => {
+			let drawer = new mdc.drawer.MDCTemporaryDrawer(new DOM("#Frame-Drawer"));
 				drawer.open = !drawer.open;
+		});
+
+		new DOM("#Frame-Content-Toolbar-SignInOut").addEventListener("click", () => {
+			switch (new DOM("#Frame-Content-Toolbar-SignInOut").dataset.locales) {
+				case "common.signIn":
+					base.signInWithRedirect(base.SIGNINTYPE.GOOGLE, base.option.scope);
+					break;
+					
+				case "common.signOut":
+					base.signOut();
+					break;
+					
+				default:
+					alert("Got to Default.");
+					break;
+			}
 		});
 		
 	window.mdc.autoInit();
@@ -101,18 +117,19 @@ window.addEventListener("DOMContentLoaded", () => {
 								this.picker.setVisible(false);
 							}
 						}
-					});
+					});*/
 				
 				
 					
 					if (user) {
-						new DOM("#Header_SignInOut").dataset.locales = "main.signOut";
+						new DOM("#Frame-Content-Toolbar-SignInOut").dataset.locales = "common.signOut";
+
+						new DOM("@.profilePhoto").forEach(photo => {
+							photo.style.setProperty("--photoUrl", `URL("${user.photoURL}")`);
+							photo.classList.remove("disabled");
+						});
 				
 						base.Database.getInfo(base.Database.ONCE, `users/${user.uid}`, (res) => {
-							new DOM('@A[UUID="ProfilePhoto-Btn"]').forEach((btn) => {
-								btn.dataset.uid = user.uid;
-							});
-				
 							if (!res.exists()) {
 								base.Database.set(`users/${user.uid}`, {
 									gplusName: user.providerData[0].displayName,
@@ -122,7 +139,7 @@ window.addEventListener("DOMContentLoaded", () => {
 									links: []
 								});
 				
-								new DOM("#Dialogs_Account_CreateNotify").showModal();
+								//new DOM("#Dialogs_Account_CreateNotify").showModal();
 							} else {
 								base.Database.update(`users/${user.uid}`, {
 									gplusName: user.providerData[0].displayName,
@@ -131,35 +148,29 @@ window.addEventListener("DOMContentLoaded", () => {
 							}
 						});
 				
-						base.Database.get(base.Database.ONCE, `users/${base.user.uid}`, (res) => {
+						/*base.Database.get(base.Database.ONCE, `users/${base.user.uid}`, (res) => {
 							new DOM("#Dialogs_Thread_Poster_Header_ActorPhoto").dataset.uid = base.user.uid;
 							new DOM("#Dialogs_Thread_Poster_Header_Actor").textContent = res.userName;
-						});
+						});*/
 					} else {
-						window.addEventListener("DOMContentLoaded", () => {
+						/*window.addEventListener("DOMContentLoaded", () => {
 							new DOM('@*[UUID="ProfilePhoto-Btn"]').forEach((btn) => {
 								btn.setAttribute("Disabled", "");
 							});
-						});
+						});*/
 					}
 				
-					locales.applyToElement(new DOM("#Header_SignInOut"));
+					locales.applyToElement(new DOM("#Frame-Content-Toolbar-SignInOut"));
 				
-					base.Database.get(base.Database.ONCE, "users", (res) => {
+					/*base.Database.get(base.Database.ONCE, "users", (res) => {
 						for (let uid in res) {
 							let photoStyle = new Component.Styles.ProfilePhotoManager(uid, res[uid].gplusPhoto);
 							
 							document.head.appendChild(photoStyle);
 						}
-					});
-				
-				
-				
-					let querys = location.querySort();
-				
-					if (querys.TID) {
-						new DOM("$IFrame.mdl-layout__content").src = `Thread/Viewer/?tid=${querys.TID}`;
-					}*/
+					});*/
+
+
 
 					terminal.postMessage({ code: "DBConnected" });
 				});
