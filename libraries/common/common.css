@@ -1,9 +1,32 @@
+* {
+	--mdc-theme-primary: #009688;
+	--mdc-theme-primary-light: #52c7b8;
+	--mdc-theme-primary-dark: #00675b;
+	--mdc-theme-secondary: #ff5252;
+	--mdc-theme-secondary-light: #ff867f;
+	--mdc-theme-secondary-dark: #c50e29;
+
+	--mdc-theme-text-primary-on-primary: #ffffff;
+	--mdc-theme-text-primary-on-primary-light: #ffffff;
+	--mdc-theme-text-primary-on-primary-dark: #ffffff;
+	--mdc-theme-text-secondary-on-primary: #b2ebf2;
+	--mdc-theme-text-secondary-on-primary-light: #006064;
+	--mdc-theme-text-secondary-on-primary-dark: #26c6da;
+	--mdc-theme-text-primary-on-secondary: #ffffff;
+	--mdc-theme-text-primary-on-secondary-light: #ffffff;
+	--mdc-theme-text-primary-on-secondary-dark: #ffffff;
+	--mdc-theme-text-secondary-on-secondary: #b2ebf2;
+	--mdc-theme-text-secondary-on-secondary-light: #b2ebf2;
+	--mdc-theme-text-secondary-on-secondary-dark: #18ffff;
+}
+
 HTML, Body {
 	Height: 100%;
 }
 
 Body {
 	Margin: 0;
+	Background: URL("/SimpleThread/images/Back.jpg");
 }
 
 Div[Data-Component="Frame-Content"] {
@@ -11,34 +34,27 @@ Div[Data-Component="Frame-Content"] {
 	Flex-Direction: Column;
 }
 
-UL[Data-Component="Frame-Drawer_SNSList"] {
-	Margin: 0 Auto;
-}
-
-UL[Data-Component="Frame-Drawer_SNSList"] > A > Span {
-	Vertical-Align: Middle;
-}
-
 Main {
+	Position: Relative;
+	Top: 1rem;
+
 	Flex: 1;
 	
+	Margin: 4vmin 17.5%;
 	Padding: 1rem;
+	Background-Color: White;
 }
 
-
-
-.mdc-typography--headline {
-	Border-Bottom: Thin Solid LightSeagreen;
+@media (Max-Width: 480px) {
+	Main {
+		Margin: 0.5rem;
+	}
 }
 
-.mdc-typography--headline::Before {
-	Content: "";
-	
-	Display: Inline-Block;
-	
-	Margin-Right: 0.5em;
-	Border: 1rem Solid Transparent;
-	Border-Color: Transparent LightSeagreen LightSeagreen Transparent;
-	
-	Vertical-Align: Bottom;
+A:Not([Href]) {
+	Cursor: Pointer;
+}
+
+*[Data-Locales] {
+	White-Space: Pre-Line;
 }
