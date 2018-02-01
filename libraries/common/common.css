@@ -22,10 +22,6 @@
 	Line-Height: 1.75;
 }
 
-HTML, Body {
-	Height: 100%;
-}
-
 Body {
 	Margin: 0;
 	Background: URL("/SimpleThread/images/Back.jpg");
@@ -40,41 +36,6 @@ A:Not([Href]) {
 }
 
 
-
-.mdc-typography--headline {
-	Border-Bottom: Thin Solid LightSeagreen;
-}
-
-.mdc-typography--headline::Before {
-	Content: "";
-	
-	Display: Inline-Block;
-	
-	Margin-Right: 0.5em;
-	Border: 1rem Solid Transparent;
-	Border-Color: Transparent LightSeagreen LightSeagreen Transparent;
-	
-	Vertical-Align: Bottom;
-}
-
-.profilePhoto.disabled {
-	Display: None;
-}
-
-.profilePhoto.mdc-tab {
-	Min-Width: Auto;
-}
-
-.profilePhoto::Before {
-	Content: "";
-
-	Display: Block;
-	Width: 2.5em;
-	Height: 2.5em;
-
-	Background: var(--photoUrl, RGBA(0, 0, 0, 0.2)) Center / Cover;
-	Border-Radius: 100%;
-}
 
 Div[Data-Component="Frame-Content"] {
 	Display: Flex;
@@ -96,4 +57,49 @@ Main {
 	Main {
 		Margin: 0.5rem;
 	}
+}
+
+.mdc-typography--headline {
+	Border-Bottom: Thin Solid LightSeagreen;
+}
+
+.mdc-typography--headline::Before {
+	Content: "";
+	
+	Display: Inline-Block;
+	
+	Margin-Right: 0.5em;
+	Border: 1rem Solid Transparent;
+	Border-Color: Transparent LightSeagreen LightSeagreen Transparent;
+	
+	Vertical-Align: Bottom;
+}
+
+.profilePhoto::Before {
+	Content: "";
+
+	Display: Block;
+	Padding-Top: 100%;
+
+	Background: var(--photoUrl, RGBA(0, 0, 0, 0.2)) Center / Cover;
+	Border-Radius: 100%;
+}
+
+A.profilePhoto.mdc-tab::Before {
+	Width: 2.5em;
+	Height: 2.5em;
+
+	Padding-Top: 0;
+}
+
+A.profilePhoto.mdc-tab {
+	Min-Width: Auto;
+}
+
+.profilePhoto.disabled {
+	Display: None;
+}
+
+.mdc-text-field > Textarea {
+	Resize: None;
 }
