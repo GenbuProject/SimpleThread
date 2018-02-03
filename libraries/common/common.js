@@ -90,7 +90,113 @@ window.addEventListener("DOMContentLoaded", () => {
 				}
 			});
 		});
-	})
+	});
+
+	new DOM("@.mdc-list.mdc-list--editable").forEach(list => {
+		const listUuid = new DOM.Randomizer().generate(16);
+
+		list.id = `MDCEditableList-${listUuid}`;
+		list.querySelector(".mdc-list-info").querySelector(".mdc-list-info__add").addEventListener("click", () => {
+			console.log("Add");
+
+			let listItem = new DOM("Li", {
+				classes: ["mdc-list-item"],
+
+				children: [
+					new DOM("Div", {
+						classes: ["mdc-list-item__form"],
+
+						children: [
+							(() => {
+								const uuid = new DOM.Randomizer().generate(16);
+
+								let linkTitle = new DOM("Div", {
+									classes: ["mdc-list-item__link-title", "mdc-text-field"],
+
+									children: [
+										new DOM("Input", {
+											id: `MDCEditableList-${listUuid}_LinkTitle-${uuid}`,
+											classes: ["mdc-text-field__input"],
+
+											attributes: {
+												Type: "Text"
+											}
+										}),
+
+										new DOM("Label", {
+											classes: ["mdc-text-field__label"],
+											text: "タイトル",
+
+											attributes: { For: `MDCEditableList-${listUuid}_LinkTitle-${uuid}` },
+											dataset: { locales: "profile.url.title" }
+										}),
+
+										new DOM("Div", {
+											classes: ["mdc-text-field__bottom-line"]
+										})
+									]
+								});
+								
+								new mdc.textField.MDCTextField(linkTitle);
+								locales.applyToElement(linkTitle.querySelector("Label"));
+
+								return linkTitle;
+							})(),
+
+							(() => {
+								const uuid = new DOM.Randomizer().generate(16);
+
+								let linkValue = new DOM("Div", {
+									classes: ["mdc-list-item__link-value", "mdc-text-field"],
+
+									children: [
+										new DOM("Input", {
+											id: `MDCEditableList-${listUuid}_LinkValue-${uuid}`,
+											classes: ["mdc-text-field__input"],
+
+											attributes: {
+												Type: "URL"
+											}
+										}),
+
+										new DOM("Label", {
+											classes: ["mdc-text-field__label"],
+											text: "URL",
+
+											attributes: { For: `MDCEditableList-${listUuid}_LinkValue-${uuid}` },
+											dataset: { locales: "profile.url.value" }
+										}),
+
+										new DOM("Div", {
+											classes: ["mdc-text-field__bottom-line"]
+										})
+									]
+								});
+
+								new mdc.textField.MDCTextField(linkValue);
+								locales.applyToElement(linkValue.querySelector("Label"));
+
+								return linkValue;
+							})()
+						]
+					}),
+
+					new DOM("A", {
+						classes: ["mdc-list-item__end-detail", "material-icons", "mdc-list-item__remove"],
+						text: "remove",
+
+						events: {
+							click (event) {
+								event.target.parentNode.remove();
+							}
+						}
+					})
+				]
+			});
+
+			list.appendChild(listItem);
+		});
+	});
 
 
 

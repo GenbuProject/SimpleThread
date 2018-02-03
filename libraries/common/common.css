@@ -35,6 +35,14 @@ A:Not([Href]) {
 	White-Space: Pre-Line;
 }
 
+.mdc-text-field > Textarea {
+	Resize: None;
+}
+
+.mdc-dialog .mdc-dialog__body > .mdc-text-field {
+	Width: 100%;
+}
+
 
 
 Div[Data-Component="Frame-Content"] {
@@ -100,10 +108,10 @@ A.profilePhoto.mdc-tab {
 	Display: None;
 }
 
-.mdc-text-field > Textarea {
-	Resize: None;
+.mdc-list.mdc-list--editable > .mdc-list-item > .mdc-list-item__form {
+	Flex-Direction: Row;
 }
 
-.mdc-dialog .mdc-dialog__body > .mdc-text-field {
-	Width: 100%;
+.mdc-list.mdc-list--editable > .mdc-list-item > .mdc-list-item__form > *:First-Child {
+	Margin-Right: 1em;
 }
