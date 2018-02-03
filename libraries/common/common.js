@@ -77,7 +77,7 @@ window.addEventListener("DOMContentLoaded", () => {
 				let result = true;
 
 				dialog.querySelectorAll('*[Required]').forEach(requiredField => {
-					if (requiredField.value.replace(/\s/g, "").length == 0) {
+					if (requiredField.value.replace(/\s/g, "").length == 0 || !requiredField.checkValidity()) {
 						result = false;
 						return;
 					}
