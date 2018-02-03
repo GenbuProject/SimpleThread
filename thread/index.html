@@ -1,0 +1,40 @@
+<!DocType HTML>
+
+<HTML>
+	<Head>
+		<Meta Charset = "UTF-8" />
+		<Meta Name = "Viewport" Content = "Width=Device-Width, Initial-Scale=1, User-Scalable=No" />
+		<Title>スレッド一覧 | Simple Thread</Title>
+
+		<Script Src = "/SimpleThread/libraries/material-components-web.min.js"></Script>
+		<Link Rel = "StyleSheet" Href = "/SimpleThread/libraries/material-components-web.min.css" />
+
+		<Script Src = "/SimpleThread/libraries/DOM Extender v3.4.js"></Script>
+		<Script Src = "/SimpleThread/libraries/common/common.js"></Script>
+		<Link Rel = "StyleSheet" Href = "/SimpleThread/libraries/common/common.css" />
+
+		<Script Src = "thread.js"></Script>
+		<Link Rel = "StyleSheet" Href = "thread.css" />
+	</Head>
+	
+	<Body>
+		<Main ID = "Thread">
+			<Nav Class = "mdc-tab-bar">
+				<A Class = "mdc-tab" Href = "#searchPanel" Data-Locales = "thread.searchPanel">スレッド検索</A>
+				<A Class = "mdc-tab" Href = "#admin" Data-Locales = "thread.adminPanel">管理中のスレッド</A>
+
+				<A Class = "mdc-tab" Href = "#">
+					<I Class = "material-icons">refresh</I>
+				</A>
+
+				<Span Class = "mdc-tab-bar__indicator"></Span>
+			</Nav>
+
+			<Section Class = "mdc-tab__panels">
+				<Div ID = "searchPanel" Class = "mdc-tab__panel">
+					a
+				</Div>
+			</Section>
+		</Main>
+	</Body>
+</HTML>
